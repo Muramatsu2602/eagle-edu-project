@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import Sidebar from "../../components/Sidebar";
 
 function Dashboard() {
   return (
-    <div>
-      <h1>Hello Dashboard</h1>
-    </div>
+    <>
+      <Sidebar />
+    </>
   );
 }
 

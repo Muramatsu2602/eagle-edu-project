@@ -1,4 +1,6 @@
 :root {
+  --eagle-purple: #393f97;
+
   --gray: #687281;
   --gray-dark: #323f52;
   --primary: #0061f2;
@@ -64,8 +66,8 @@
 }
 
 body {
-  color: #777777;
-  background: #ebebeb;
+  color: var(--white);
+  background: var(--eagle-purple);
 
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
