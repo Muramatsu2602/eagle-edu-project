@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="React RocketShoes" style="height: 200px" src="web/src/assets/main-logo.png" />
+    <img alt="Eagle Edu Logo" width="200"  src="web/src/assets/main-logo.png" />
     <br>
     Eagle Edu Project
 </h1>
