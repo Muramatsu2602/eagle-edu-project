@@ -38,9 +38,15 @@ const DropDownLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    text-decoration: underline;
     cursor: pointer;
+    transition: 200ms;
+    background: var(--light);
+    /* font-weight: 600; */
   }
+
+  /* &:active{
+    color: var(--eagle-purple);;
+  } */
 `;
 
 const SubMenu = ({ course }) => {

@@ -110,7 +110,7 @@ const Sidebar = () => {
   return (
     <>
       <Nav>
-        <NavLogoSection to="">
+        <NavLogoSection to="#">
           <Logo />
           <FaIcons.FaBars onClick={showSidebar} />
         </NavLogoSection>
