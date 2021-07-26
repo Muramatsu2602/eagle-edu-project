@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 
-import Sidebar from "../../components/Sidebar";
+import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
 
 const Container = styled.div`
   /* background-color: red; */

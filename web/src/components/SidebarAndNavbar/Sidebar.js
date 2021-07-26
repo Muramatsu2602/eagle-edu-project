@@ -5,7 +5,7 @@ import styled from "styled-components";
 import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
 import * as AiIcons from "react-icons/ai";
-import dashboardIcon from "../assets/dashboard-icon.png";
+import dashboardIcon from "../../assets/dashboard-icon.png";
 
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
