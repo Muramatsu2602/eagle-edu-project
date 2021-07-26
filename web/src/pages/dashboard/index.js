@@ -1,12 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import styled from "styled-components";
 
 import Sidebar from "../../components/Sidebar";
+
+const Container = styled.div`
+  display: block;
+  height: 100vh;
+  width: 100vw;
+`;
+
+const DashboardWrapper = styled.div`
+  background-color: var(--white);
+  border-radius: 10px;
+  min-height: 40vh;
+  height: auto;
+  margin: 2rem;
+`;
 
 function Dashboard() {
   return (
     <Router>
-      <Sidebar />
+      <Container>
+        <Sidebar />
+        <DashboardWrapper />
+      </Container>
     </Router>
   );
 }

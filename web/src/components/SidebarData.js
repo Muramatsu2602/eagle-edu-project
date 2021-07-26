@@ -6,51 +6,32 @@ import * as Ricons from "react-icons/ri";
 
 export const SidebarData = [
   {
-    title: "Overview",
-    path: "/overview",
+    title: "Courses",
+    path: "/courses",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <Ricons.RiArrowDownSFill />,
     iconOpened: <Ricons.RiArrowUpSFill />,
     subNav: [
       {
-        title: "Users",
-        path: "/overview/users",
-        icon: <IoIcons.IoIosPaper />,
+        title: "Maths",
+        path: "/courses/maths",
+        icon: <IoIcons.IoMdNuclear />,
       },
       {
-        title: "Revenue",
-        path: "/overview/revenue",
-        icon: <IoIcons.IoIosPaper />,
+        title: "Chemistry",
+        path: "/courses/chemistry",
+        icon: <IoIcons.IoIosHappy />,
+      },
+      {
+        title: "History",
+        path: "/courses/history",
+        icon: <IoIcons.IoMdBook />,
       },
     ],
   },
   {
-    title: "Reports",
-    path: "/reports",
-    icon: <AiIcons.AiFillHome />,
-    iconClosed: <Ricons.RiArrowDownSFill />,
-    iconOpened: <Ricons.RiArrowUpSFill />,
-    subNav: [
-      {
-        title: "Reports 1",
-        path: "/reports/reports1",
-        icon: <IoIcons.IoIosPaper />,
-      },
-      {
-        title: "Reports 2",
-        path: "/reports/reports2",
-        icon: <IoIcons.IoIosPaper />,
-      },
-      {
-        title: "Reports 3",
-        path: "/reports/reports3",
-        icon: <IoIcons.IoIosPaper />,
-      },
-    ],
-  },
-  {
-    title: "Products",
+    title: "About",
     path: "/products",
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaIcons.FaInfoCircle />,
   },
 ];
