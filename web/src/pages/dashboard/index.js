@@ -5,8 +5,10 @@ import styled from "styled-components";
 import Sidebar from "../../components/Sidebar";
 
 const Container = styled.div`
+  /* background-color: red; */
+  margin-top: 110px;
   display: block;
-  height: 100vh;
+  height: 200vh;
   width: 100vw;
 `;
 

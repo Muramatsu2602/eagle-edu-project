@@ -16,6 +16,17 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  // this makes it sticky
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  // fancy shadows
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+     -moz-box-shadow: 0 10px 6px -6px #777;
+          box-shadow: 0 10px 6px -6px #777;
+  
 `;
 
 const NavLogoSection = styled(Link)`
@@ -60,6 +71,7 @@ const NavProfileSection = styled.div`
 
 const SidebarNav = styled.nav`
   background: var(--white);
+  top: 80px;
   width: 250px;
   height: 100vh;
   display: flex;
