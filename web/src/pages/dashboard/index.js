@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 
 import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
+import CourseCard from "../../components/CourseCard";
 
 const Container = styled.div`
   /* background-color: red; */
@@ -18,6 +19,9 @@ const DashboardWrapper = styled.div`
   min-height: 40vh;
   height: auto;
   margin: 2rem;
+
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 function Dashboard() {
@@ -25,7 +29,12 @@ function Dashboard() {
     <Router>
       <Container>
         <Sidebar />
-        <DashboardWrapper />
+        <DashboardWrapper>
+          <CourseCard/>
+          <CourseCard/>
+          <CourseCard/>
+          <CourseCard/>
+        </DashboardWrapper>
       </Container>
     </Router>
   );
