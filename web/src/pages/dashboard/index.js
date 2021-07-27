@@ -22,6 +22,7 @@ const DashboardWrapper = styled.div`
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 function Dashboard() {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const CardWrapper = styled.div`
-  width: 40%;
+  width: 45%;
   background-color: var(--white);
 
   border: 0.2rem solid var(--gray-dark);
