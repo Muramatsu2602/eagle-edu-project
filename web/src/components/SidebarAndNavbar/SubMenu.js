@@ -1,53 +1,6 @@
 import React, { useState } from "react";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 
-const SidebarLink = styled(Link)`
-  display: flex;
-  color: var(--gray);
-  text-decoration: none;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  list-style: none;
-  height: 60px;
-  font-size: 18px;
-
-  &:hover {
-    transition: 200ms;
-    color: var(--white);
-    background: var(--eagle-purple);
-    border-left: 4px solid var(-eagle-purple);
-    cursor: pointer;
-  }
-`;
-
-const SidebarLabel = styled.span`
-  margin-left: 16px;
-`;
-
-const DropDownLink = styled(Link)`
-  /* background: ; */
-  height: 60px;
-  padding-left: 3rem;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-
-  font-size: 18px;
-
-  &:hover {
-    cursor: pointer;
-    transition: 200ms;
-    background: var(--light);
-    /* font-weight: 600; */
-  }
-
-  /* &:active{
-    color: var(--eagle-purple);;
-  } */
-`;
+import { SidebarLink, SidebarLabel, DropDownLink } from "./submenu-styling";
 
 const SubMenu = ({ course }) => {
   const [subnav, setSubnav] = useState(false);

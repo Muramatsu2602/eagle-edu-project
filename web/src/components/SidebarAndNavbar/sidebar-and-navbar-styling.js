@@ -18,6 +18,8 @@ export const Nav = styled.div`
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
+
+  z-index: 10;
 `;
 
 export const NavLogoSection = styled(Link)`
