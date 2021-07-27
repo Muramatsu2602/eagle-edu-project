@@ -9,8 +9,8 @@ import ProgressBar from "../ProgressBar";
 const CardWrapper = styled.div`
   width: 45%;
 
-  border: 0.2rem solid var(--gray-dark);
-  padding: 1rem;
+  /* border: 0.2rem solid var(--gray-dark); */
+  /* padding: 1rem; */
   margin: 1rem;
 
   flex-direction: column;
@@ -29,7 +29,7 @@ const CourseIconSection = styled.div`
 
 const CourseInfoSection = styled.div`
   width: 100%;
-
+  background-color: red;
   flex-direction: column;
   display: flex;
   justify-content: space-around;
@@ -40,14 +40,26 @@ const CardButton = styled.button`
   background: var(--gray);
   color: var(--white);
   cursor: pointer;
-  /* border: none; */
+  border: none;
 
   border-radius: 5px;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  font-size: 14px;
+  padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+  font-size: 15px;
 
-  width: 100%;
+  width: 97%;
   display: block;
+`;
+
+const MyProgressBar = styled.progress`
+  -webkit-appearance: none;
+  appearance: none;
+
+  color: var(--green);
+
+  width: 98%;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 0.2rem;
 `;
 
 const CourseCard = ({ course }) => {
@@ -55,10 +67,8 @@ const CourseCard = ({ course }) => {
     <>
       <CardWrapper>
         <CourseIconSection>{course.icon}</CourseIconSection>
-        <CourseInfoSection>
-          <CardButton>{course.title}</CardButton>
-          <ProgressBar value={course.progress} max={100} />
-        </CourseInfoSection>
+        <CardButton>{course.title}</CardButton>
+        <MyProgressBar value={course.progress} max={100} />
       </CardWrapper>
     </>
   );
