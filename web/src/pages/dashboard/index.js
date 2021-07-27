@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, {  } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
 
 import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
 import CourseCard from "../../components/CourseCard";
+
+import { CourseCardData } from "../../components/CourseCard/CourseCardData";
 
 const Container = styled.div`
   /* background-color: red; */
@@ -31,10 +33,9 @@ function Dashboard() {
       <Container>
         <Sidebar />
         <DashboardWrapper>
-          <CourseCard/>
-          <CourseCard/>
-          <CourseCard/>
-          <CourseCard/>
+          {CourseCardData.map((course, index) => {
+            return <CourseCard course={course} key={index} />;
+          })}
         </DashboardWrapper>
       </Container>
     </Router>
