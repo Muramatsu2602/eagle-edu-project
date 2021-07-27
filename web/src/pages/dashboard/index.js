@@ -3,8 +3,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
 
 import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
-import CourseCard from "../../components/CourseCard";
 
+import CourseCard from "../../components/CourseCard";
 import { CourseCardData } from "../../components/CourseCard/CourseCardData";
 
 const Container = styled.div`

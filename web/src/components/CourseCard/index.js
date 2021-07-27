@@ -4,9 +4,10 @@ import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
 import * as AiIcons from "react-icons/ai";
 
+import ProgressBar from "../ProgressBar";
+
 const CardWrapper = styled.div`
   width: 45%;
-  background-color: var(--white);
 
   border: 0.2rem solid var(--gray-dark);
   padding: 1rem;
@@ -27,20 +28,36 @@ const CourseIconSection = styled.div`
 `;
 
 const CourseInfoSection = styled.div`
+  width: 100%;
+
   flex-direction: column;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
-const CourseCard = (course) => {
+const CardButton = styled.button`
+  background: var(--gray);
+  color: var(--white);
+  cursor: pointer;
+  /* border: none; */
+
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  font-size: 14px;
+
+  width: 100%;
+  display: block;
+`;
+
+const CourseCard = ({ course }) => {
   return (
     <>
       <CardWrapper>
         <CourseIconSection>{course.icon}</CourseIconSection>
         <CourseInfoSection>
-          <h2>{course.title} </h2>
-          <h3>{course.progress} </h3>
+          <CardButton>{course.title}</CardButton>
+          <ProgressBar value={course.progress} max={100} />
         </CourseInfoSection>
       </CardWrapper>
     </>
