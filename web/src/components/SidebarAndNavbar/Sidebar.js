@@ -14,6 +14,7 @@ import {
   SidebarNav,
   SidebarWrap,
   SidebarTitle,
+  ProfileSectionLabel
 } from "./sidebar-and-navbar-styling";
 
 const Sidebar = () => {
@@ -33,6 +34,9 @@ const Sidebar = () => {
         </NavLogoSection>
 
         <NavProfileSection>
+          <ProfileSectionLabel>
+            English
+          </ProfileSectionLabel>
           <NavIcon to="#">
             <IoIcons.IoMdPerson onClick={showProfileOptions} />
           </NavIcon>

@@ -91,3 +91,9 @@ export const SidebarTitle = styled.span`
   font-size: 16px;
   margin-left: 1rem;
 `;
+
+
+export const ProfileSectionLabel = styled.span`
+  color: var(--gray);
+  font-size: 14px;
+`;
