@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 
+import {
+  Container,
+  LoginForm,
+  LogoSection,
+  FormSection,
+  BottomLabel,
+  SignUpLink,
+} from "./login-styling";
+
 function Login() {
   // Form Variables
   const [userName, setUserName] = useState(""); //  const [login, setLogin] --> notion
@@ -11,11 +20,6 @@ function Login() {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  /**
-   * função que é executada no início do componente, para
-   * verificar se o usuário já não está logado, se estiver,
-   *  redirecionamos para a página /user  (/private, no Notion)
-   */
   useEffect(() => {
     const user = Auth.isLogged();
     if (user) setSuccess(true);
@@ -40,12 +44,18 @@ function Login() {
   };
 
   return (
-  <>
-  
-  
-  
-  
-  </>);
+    <>
+      <Container>
+        <LoginForm>
+          <LogoSection></LogoSection>
+          <FormSection></FormSection>
+          <BottomLabel>
+            Don't have an account? <SignUpLink to="#">Sign Up</SignUpLink> now!
+          </BottomLabel>
+        </LoginForm>
+      </Container>
+    </>
+  );
 }
 
 export default Login;
