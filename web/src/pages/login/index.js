@@ -5,10 +5,12 @@ import { Redirect } from "react-router-dom";
 import {
   Container,
   LoginForm,
-  LogoSection,
   FormSection,
   BottomLabel,
   SignUpLink,
+  SubmitButton,
+  InputField,
+  Logo,
 } from "./login-styling";
 
 function Login() {
@@ -28,27 +30,36 @@ function Login() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    setError(false);
-    setSuccess(false);
+    // setError(false);
+    // setSuccess(false);
 
-    // this will determine whether we go to /admin or /user page
-    let isAdmin = false;
-    if (password) isAdmin = true;
+    // // this will determine whether we go to /admin or /user page
+    // let isAdmin = false;
+    // if (password) isAdmin = true;
 
-    const res = await Auth.logInUser(userName, password, isAdmin);
+    // const res = await Auth.logInUser(userName, password, isAdmin);
 
-    console.log(res);
+    // console.log(res);
 
-    if (!res) setError(true);
-    else setSuccess(true);
+    // if (!res) setError(true);
+    // else setSuccess(true);
+
+    
   };
 
   return (
     <>
       <Container>
         <LoginForm>
-          <LogoSection></LogoSection>
-          <FormSection></FormSection>
+
+          <Logo />
+          <FormSection onSubmit={onSubmit}>
+            <InputField type="text" placeholder="Email" />
+
+            <InputField type="password" placeholder="Password" />
+
+            <SubmitButton type="submit"> Sign In</SubmitButton>
+          </FormSection>
           <BottomLabel>
             Don't have an account? <SignUpLink to="#">Sign Up</SignUpLink> now!
           </BottomLabel>
