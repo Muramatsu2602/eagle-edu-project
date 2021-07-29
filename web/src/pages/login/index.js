@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 
-export default function Login() {
+function Login() {
   // Form Variables
   const [userName, setUserName] = useState(""); //  const [login, setLogin] --> notion
   const [password, setPassword] = useState("");
@@ -39,5 +39,13 @@ export default function Login() {
     else setSuccess(true);
   };
 
-  return <></>;
+  return (
+  <>
+  
+  
+  
+  
+  </>);
 }
+
+export default Login;
