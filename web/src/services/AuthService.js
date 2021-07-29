@@ -1,16 +1,15 @@
 import axios from "axios"; //import axios to make
 
-const logInUser = async (userLogin, password, isAdmin) => {
+const logInUser = async (email, password) => {
   try {
     const res = await axios.post("/", {
-      userName: userLogin,
+      email: email,
       password,
-      isAdmin,
     });
 
-    const { token, userName } = res.data;
+    const { token, userEmail } = res.data;
 
-    localStorage.setItem("user", JSON.stringify({ userName, token }));
+    localStorage.setItem("user", JSON.stringify({ userEmail, token }));
     return true;
   } catch (error) {
     console.log(error);

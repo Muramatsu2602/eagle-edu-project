@@ -18,13 +18,13 @@ export const LoginForm = styled.div`
   width: 470px;
   height: auto;
 
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 3rem 2rem 2rem 2rem;
   background-color: var(--white);
   border-radius: 10px;
 `;
 
 export const Logo = styled.img`
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   height: 201.76px;
   width: 144.63px;
 `;
@@ -49,7 +49,19 @@ export const BottomLabel = styled.span`
 
   display: flex;
   justify-content: left;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
+
+export const WelcomeText = styled.span`
+  width: 100%;
+  color: var(--black);
+  font-size: 17px;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
 `;
 
 export const SignUpLink = styled(Link)`
@@ -69,15 +81,18 @@ export const InputField = styled.input`
   border: none;
 
   padding: 0.375rem 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
   color: #495057;
 
-  border: 1px solid #ced4da;
+  border-bottom: 1px solid #ced4da;
   border-radius: 0.25rem;
 
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:focus {
+    outline: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 `;
 
 export const SubmitButton = styled.button`

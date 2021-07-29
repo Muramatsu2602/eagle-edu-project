@@ -11,11 +11,12 @@ import {
   SubmitButton,
   InputField,
   Logo,
+  WelcomeText
 } from "./login-styling";
 
 function Login() {
   // Form Variables
-  const [userName, setUserName] = useState(""); //  const [login, setLogin] --> notion
+  const [email, setEmail] = useState(""); //  const [login, setLogin] --> notion
   const [password, setPassword] = useState("");
 
   // State Variables
@@ -30,33 +31,38 @@ function Login() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // setError(false);
-    // setSuccess(false);
+    setError(false);
+    setSuccess(false);
 
-    // // this will determine whether we go to /admin or /user page
-    // let isAdmin = false;
-    // if (password) isAdmin = true;
+    // this will determine whether we go to /admin or /user page
+    let isAdmin = false;
+    if (password) isAdmin = true;
 
-    // const res = await Auth.logInUser(userName, password, isAdmin);
+    const res = await Auth.logInUser(email, password);
 
-    // console.log(res);
+    console.log(res);
 
-    // if (!res) setError(true);
-    // else setSuccess(true);
-
-    
+    if (!res) setError(true);
+    else setSuccess(true);
   };
 
   return (
     <>
       <Container>
         <LoginForm>
-
+          <WelcomeText>Welcome to</WelcomeText>
           <Logo />
           <FormSection onSubmit={onSubmit}>
-            <InputField type="text" placeholder="Email" />
-
-            <InputField type="password" placeholder="Password" />
+            <InputField
+              type="text"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <InputField
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
             <SubmitButton type="submit"> Sign In</SubmitButton>
           </FormSection>
