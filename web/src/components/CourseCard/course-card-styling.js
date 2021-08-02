@@ -3,13 +3,11 @@ import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
 import * as AiIcons from "react-icons/ai";
 
-
-export const  CardWrapper = styled.div`
+export const CardWrapper = styled.div`
   width: 45%;
-
   /* border: 0.2rem solid var(--gray-dark); */
   /* padding: 1rem; */
-  margin: 1rem;
+  margin: 2.3rem;
 
   flex-direction: column;
   display: flex;
@@ -27,7 +25,6 @@ export const CourseIconSection = styled.div`
 
 export const CourseInfoSection = styled.div`
   width: 100%;
-  background-color: red;
   flex-direction: column;
   display: flex;
   justify-content: space-around;
@@ -43,15 +40,16 @@ export const CardButton = styled.button`
   border-radius: 5px;
   padding: 0.3rem 0.3rem 0.3rem 0.3rem;
   font-size: 15px;
+  font-weight: 600;
 
-  width: 97%;
+  width: 99%;
   display: block;
 `;
 
 export const ProgressContainer = styled.div`
   margin-top: 0.5rem;
   height: 15px;
-  width: 98.4%;
+  width: 100%;
   position: relative;
 `;
 
@@ -79,8 +77,15 @@ export const Progress = styled(BaseBox)`
       rgba(0, 0, 0, 0.1) 66%,
       transparent 66%
     ),
-    -webkit-linear-gradient(left, #61d879,#7ade8c);
+    -webkit-linear-gradient(left, #61d879, #7ade8c);
 
   border-radius: 3px;
   background-size: 25px 15px, 100% 100%, 100% 100%;
+`;
+
+export const ClickableArea = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  cursor: pointer;
 `;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 import {
   CardWrapper,
@@ -7,7 +8,9 @@ import {
   Background,
   Progress,
   ProgressContainer,
+  ClickableArea
 } from "./course-card-styling";
+
 
 const CourseCard = ({ course }) => {
   const showTaskDetails = () => alert("Opening Course Details");
@@ -15,8 +18,11 @@ const CourseCard = ({ course }) => {
   return (
     <>
       <CardWrapper>
-        <CourseIconSection>{course.icon}</CourseIconSection>
-        <CardButton onClick={showTaskDetails}>{course.title}</CardButton>
+        <ClickableArea onClick={showTaskDetails}>
+          <CourseIconSection>{course.icon}</CourseIconSection>
+          <CardButton>{course.title}</CardButton>
+        </ClickableArea>
+
         <ProgressContainer>
           <Background />
           <Progress percent={course.progress} />
