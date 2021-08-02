@@ -22,9 +22,9 @@ const CourseCard = ({ course }) => {
 
   return (
     <>
-      <CardWrapper>
-        <MissionModal showModal={showModal} setShowModal={setShowModal} />
+      <MissionModal showModal={showModal} setShowModal={setShowModal} />
 
+      <CardWrapper>
         <ClickableArea onClick={openMissionModal}>
           <CourseIconSection>{course.icon}</CourseIconSection>
           <CardButton>{course.title}</CardButton>

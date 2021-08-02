@@ -34,9 +34,13 @@ export const MissionModal = ({ showModal, setShowModal }) => {
     },
     [setShowModal, showModal]
   );
-    
+
+  /**
+   * calls API and then updates ProgressBar
+   */
   const completeTask = () => {
     alert("task completed successfully!");
+    setShowModal(false);
   };
 
   useEffect(() => {
