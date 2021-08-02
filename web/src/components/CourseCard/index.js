@@ -8,17 +8,24 @@ import {
   Background,
   Progress,
   ProgressContainer,
-  ClickableArea
+  ClickableArea,
 } from "./course-card-styling";
 
+import { MissionModal } from "../MissionModal";
 
 const CourseCard = ({ course }) => {
-  const showTaskDetails = () => alert("Opening Course Details");
+  const [showModal, setShowModal] = useState(false);
+
+  const openMissionModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   return (
     <>
       <CardWrapper>
-        <ClickableArea onClick={showTaskDetails}>
+        <MissionModal showModal={showModal} setShowModal={setShowModal} />
+
+        <ClickableArea onClick={openMissionModal}>
           <CourseIconSection>{course.icon}</CourseIconSection>
           <CardButton>{course.title}</CardButton>
         </ClickableArea>
