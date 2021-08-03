@@ -1,6 +1,8 @@
-const express = require('express');
+const ck = require("ckey");
+const PORT = ck.API_PORT;
+
+const express = require("express");
 const app = express();
-const PORT = 8080;
 
 // using middleware to convert request body to JSON
 app.use(express.json());
