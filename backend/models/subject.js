@@ -8,4 +8,20 @@ const Subject = database.define("subject", {
     allowNull: false,
     primaryKey: true,
   },
+  name: {
+    type: Sequelize.STRING(100),
+    allowNull: false,
+  },
+  icon: {
+    type: Sequelize.STRING(30),
+    allowNull: false,
+  },
+  completionRate: {
+    type: Sequelize.DECIMAL,
+    allowNull: false,
+    defaultValue: 0.0,
+  },
+  //TODO: add N missions per subject
 });
+
+module.exports = Subject;

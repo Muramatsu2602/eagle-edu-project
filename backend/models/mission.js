@@ -8,4 +8,18 @@ const Mission = database.define("mission", {
     allowNull: false,
     primaryKey: true,
   },
+  name: {
+    type: Sequelize.STRING(100),
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.STRING(300),
+    allowNull: false,
+  },
+  isCompleted: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
 });
+
+module.exports = Mission;
