@@ -1,4 +1,7 @@
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('crud', 'root', 'luiztools', {dialect: 'mysql', host: 'localhost'});
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(`${process.env.DB_NAME}`, `${process.env.DB_USER}`, `${process.env.BD_PWD}`, {
+  dialect: "mysql",
+  host: "localhost",
+});
 
 module.exports = sequelize;

@@ -37,6 +37,7 @@ export const MissionModal = ({ showModal, setShowModal }) => {
 
   /**
    * calls API and then updates ProgressBar
+   * !The progress bar is completed depending on the number of tasks (2 tasks, 50% each)!
    */
   const completeTask = () => {
     alert("task completed successfully!");
@@ -62,7 +63,7 @@ export const MissionModal = ({ showModal, setShowModal }) => {
               </CloseModalButtonContainer>
 
               <ModalContent>
-                <h1>Current Mission</h1>
+                <h1>Current Mission: [Mission name]</h1>
                 <p>Press the button to complete the mission</p>
                 <button onClick={completeTask}>Click me!</button>
               </ModalContent>
