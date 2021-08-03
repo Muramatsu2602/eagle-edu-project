@@ -1,7 +1,12 @@
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize(`${process.env.DB_NAME}`, `${process.env.DB_USER}`, `${process.env.BD_PWD}`, {
-  dialect: "mysql",
-  host: "localhost",
-});
+const sequelize = new Sequelize(
+  `eagle_db`,
+  `root`,
+  `root`,
+  {
+    dialect: "mysql",
+    host: "localhost",
+  }
+);
 
 module.exports = sequelize;
