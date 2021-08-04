@@ -6,10 +6,13 @@
   const Subject = require("./models/subject");
   const Mission = require("./models/mission");
   // const Student = require("./models/student");
-  await database.sync();
+  await database.sync({ force: true });
 
-  const newCourse = await Course.create({
-    nome: "Algebra III",
-    
-  });
+  //   const newCourse = await Course.create({
+  //     name: "Algebra III",
+  //   });
+
+  //   const newSubject = await Subject.create({
+
+  //   });
 })();

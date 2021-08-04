@@ -13,10 +13,20 @@ const Course = database.define("course", {
     type: Sequelize.STRING(100),
     allowNull: false,
   },
+  // !USE THIS IF STUDENT IS GET IMPLEMENTED
+  // FOREIGN KEY
+  // studentId: {
+  //   allowNull: true,
+  //   type: Sequelize.INTEGER,
+  //   references: {
+  //     model: 'student',
+  //     key: 'id'
+  //   }
+  // }
 });
 
 // add Course id foreign key to all Subjects
-Subject.belongsTo(Course, { foreignKey: "id_subject" });
-Course.hasMany(Subject, { foreignKey: "id_subject" });
+// Subject.belongsTo(Course, { foreignKey: "id_subject" });
+// Course.hasMany(Subject, { foreignKey: "id_subject" });
 
 module.exports = Course;
