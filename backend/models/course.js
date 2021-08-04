@@ -15,6 +15,8 @@ const Course = database.define("course", {
   },
 });
 
-Course.hasMany(Subject, { as: "Subjects" });
+// add Course id foreign key to all Subjects
+Subject.belongsTo(Course, { foreignKey: "id_subject" });
+Course.hasMany(Subject, { foreignKey: "id_subject" });
 
 module.exports = Course;

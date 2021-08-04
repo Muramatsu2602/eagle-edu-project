@@ -24,6 +24,8 @@ const Subject = database.define("subject", {
   },
 });
 
-Subject.hasMany(Mission, { as: "Missions" });
+// add Subject id foreign key to all Missions
+Mission.belongsTo(Subject, { foreignKey: "id_mission" });
+Subject.hasMany(Mission, { foreignKey: "id_mission" });
 
 module.exports = Subject;

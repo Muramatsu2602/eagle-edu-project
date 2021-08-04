@@ -1,25 +1,28 @@
 const Sequelize = require("sequelize");
 const database = require("../database/db");
 
-const Mission = database.define("mission", {
+const Student = database.define("student", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  name: {
+  fullName: {
     type: Sequelize.STRING(100),
     allowNull: false,
   },
-  description: {
-    type: Sequelize.STRING(300),
+  email: {
+    type: Sequelize.STRING(100),
     allowNull: false,
+    unique: true
   },
-  isCompleted: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
+  password: {
+    type: Sequelize.STRING(20),
+    allowNull: false,
   },
 });
 
-module.exports = Mission;
+Student.hasMany(Course, { as: "Courses" });
+
+module.exports = Student;
