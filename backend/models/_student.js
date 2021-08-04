@@ -24,8 +24,8 @@ const Student = database.define("student", {
   },
 });
 
-// // add Subject id foreign key to all Missions
-// Course.belongsTo(Student, { foreignKey: "id_course" });
-// Student.hasMany(Course, { foreignKey: "id_course" });
+// add Subject id foreign key to all Missions
+Course.belongsTo(Student, { foreignKey: "studentId" });
+Student.hasMany(Course, { foreignKey: "studentId" });
 
 module.exports = Student;

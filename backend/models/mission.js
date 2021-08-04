@@ -20,15 +20,15 @@ const Mission = database.define("mission", {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
-  // FOREIGN KEY
-  subjectId: {
-    allowNull: true,
-    type: Sequelize.INTEGER,
-    references: {
-      model: "subjects",
-      key: "id",
-    },
-  },
+  // MANUAL WAY OF IMPLEMENTING A FOREIGN KEY
+  // subjectId: {
+  //   allowNull: true,
+  //   type: Sequelize.INTEGER,
+  //   references: {
+  //     model: "subjects",
+  //     key: "id",
+  //   },
+  // },
 });
 
 module.exports = Mission;

@@ -22,19 +22,19 @@ const Subject = database.define("subject", {
     allowNull: false,
     defaultValue: 0.0,
   },
-  // FOREIGN KEY
-  courseId: {
-    allowNull: true,
-    type: Sequelize.INTEGER,
-    references: {
-      model: "courses",
-      key: "id",
-    },
-  },
+  // MANUAL WAY OF IMPLEMENTING A FOREIGN KEY
+  // courseId: {
+  //   allowNull: true,
+  //   type: Sequelize.INTEGER,
+  //   references: {
+  //     model: "courses",
+  //     key: "id",
+  //   },
+  // },
 });
 
-// // add Subject id foreign key to all Missions
-// Mission.belongsTo(Subject, { foreignKey: "id_mission" });
-// Subject.hasMany(Mission, { foreignKey: "id_mission" });
+// add Subject id foreign key to all Missions
+Mission.belongsTo(Subject, { foreignKey: "subjectId" });
+Subject.hasMany(Mission, { foreignKey: "subjectId" });
 
 module.exports = Subject;
