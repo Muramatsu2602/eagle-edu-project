@@ -9,3 +9,7 @@ const User = database.define("user", {
     primaryKey: true,
   },
 });
+
+User.hasMany(Course, { as: "Courses" });
+
+module.exports = User;

@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const database = require("../database/db");
+const Mission = require("./mission");
 
 const Subject = database.define("subject", {
   id: {
@@ -21,7 +22,8 @@ const Subject = database.define("subject", {
     allowNull: false,
     defaultValue: 0.0,
   },
-  //TODO: add N missions per subject
 });
+
+Subject.hasMany(Mission, { as: "Missions" });
 
 module.exports = Subject;

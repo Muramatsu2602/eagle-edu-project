@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const database = require("../database/db");
+const Subject = require("./subject");
 
 const Course = database.define("course", {
   id: {
@@ -11,8 +12,9 @@ const Course = database.define("course", {
   name: {
     type: Sequelize.STRING(100),
     allowNull: false,
-  }
-  //TODO: add N subjects per course
+  },
 });
+
+Course.hasMany(Subject, { as: "Subjects" });
 
 module.exports = Course;
