@@ -10,11 +10,11 @@ import {
   Progress,
   ProgressContainer,
   ClickableArea,
-} from "./course-card-styling";
+} from "./subject-card-styling";
 
 import { MissionModal } from "../MissionModal";
 
-const CourseCard = ({ course }) => {
+const SubjectCard = ({ course }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openMissionModal = () => {
@@ -42,4 +42,4 @@ const CourseCard = ({ course }) => {
   );
 };
 
-export default CourseCard;
+export default SubjectCard;

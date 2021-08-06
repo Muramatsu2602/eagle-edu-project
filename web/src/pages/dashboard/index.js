@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
-import CourseCard from "../../components/CourseCard";
-import { CourseCardData } from "../../components/CourseCard/CourseCardData";
+import CourseCard from "../../components/SubjectCard";
+import { SubjectCardData } from "../../components/SubjectCard/SubjectCardData";
 import { Container, DashboardWrapper } from "./dashboard-styling";
 
 
@@ -14,7 +14,7 @@ function Dashboard() {
       <Container>
         <Sidebar />
         <DashboardWrapper>
-          {CourseCardData.map((course, index) => {
+          {SubjectCardData.map((course, index) => {
             return <CourseCard course={course} key={index} />;
           })}
         </DashboardWrapper>

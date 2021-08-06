@@ -1,5 +1,5 @@
 // task list for a Course
-export const CourseCardData = [
+export const SubjectCardData = [
   {
     title: "Likes",
     icon: "FaCheck",
