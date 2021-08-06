@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SidebarLink, SidebarLabel, DropDownLink } from "./submenu-styling";
-import DynamicFaIcon from "../DynamicRiIcon";
+import DynamicFaIcon from "../DynamicFaIcon";
 
 const SubMenu = ({ courses, sidebarData }) => {
   const [subnav, setSubnav] = useState(false);
