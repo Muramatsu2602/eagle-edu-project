@@ -4,6 +4,7 @@ import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
 import * as AiIcons from "react-icons/ai";
 import * as Ricons from "react-icons/ri";
+import { useHistory } from "react-router-dom";
 import SubMenu from "./SubMenu";
 
 import { SidebarData } from "./SidebarData";
@@ -17,10 +18,11 @@ import {
   SidebarNav,
   SidebarWrap,
   SidebarTitle,
-  ProfileSectionLabel,
+  Select,
 } from "./sidebar-and-navbar-styling";
 
 const Sidebar = () => {
+  const history = useHistory(); // router
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -44,9 +46,6 @@ const Sidebar = () => {
     loadData();
   }, []);
 
-  const showProfileOptions = () =>
-    alert("imagine being able to exit or even edit your profile!");
-
   return (
     <>
       <Nav>
@@ -56,9 +55,17 @@ const Sidebar = () => {
         </NavLogoSection>
 
         <NavProfileSection>
-          <ProfileSectionLabel>English</ProfileSectionLabel>
-          <NavIcon to="#">
-            <IoIcons.IoMdPerson onClick={showProfileOptions} />
+          <Select>
+            <option value="" hidden>
+              Language
+            </option>
+
+            <option value="1">English 🇺🇸 </option>
+            <option value="2">Português 🇧🇷</option>
+            <option value="3">日本語 🇯🇵</option>
+          </Select>
+          <NavIcon onClick={() => history.push("/login")}>
+            <IoIcons.IoMdPerson />
           </NavIcon>
         </NavProfileSection>
       </Nav>
