@@ -22,15 +22,6 @@ const Subject = database.define("subject", {
     allowNull: false,
     defaultValue: 0.0,
   },
-  // MANUAL WAY OF IMPLEMENTING A FOREIGN KEY
-  // courseId: {
-  //   allowNull: true,
-  //   type: Sequelize.INTEGER,
-  //   references: {
-  //     model: "courses",
-  //     key: "id",
-  //   },
-  // },
 });
 
 // add Subject id foreign key to all Missions

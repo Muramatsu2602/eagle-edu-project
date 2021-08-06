@@ -40,3 +40,23 @@ exports.getCourses = async (req, res) => {
       .json({ message: "Error when retrieving all courses from DB", error });
   }
 };
+
+/**
+ * returns a Course given its id
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
+exports.getCourseById = async (req, res) => {
+  try {
+    const course = await Course.findByPk(req.body.id);
+
+    console.log("course loaded");
+    return res.status(200).json(course);
+  } catch (e) {
+    console.log("ERRO: ", e);
+    return res
+      .status(400)
+      .json({ message: "Error when retrieving course from DB", error });
+  }
+};

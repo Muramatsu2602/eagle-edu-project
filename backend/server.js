@@ -10,15 +10,19 @@ server.use(express.json());
 
 // =========== ROUTES ==============
 const CoursesController  = require ("./src/controllers/CoursesController");
-// import {SubjectsController} from "./src/controllers/SubjectsController.js";
+const SubjectsController = require("./src/controllers/SubjectsController.js");
 // import {MissionsController} from "./src/controllers/MissionsController.js";
 
 // Course
 server.get("/getCourses", CoursesController.getCourses);
-// server.get("/getCourseById", CoursesController.getCourseById);
+server.get("/getCourseById", CoursesController.getCourseById);
 server.post("/createCourse", CoursesController.createCourse);
 
 // Subject
+server.get("/getSubjectById", CoursesController.getSubjectsByFk);
+server.get("/getSubjectsByFk", CoursesController.getSubjectsByFk);
+server.post("/updateProgressById", CoursesController.updateProgressValueById);
+server.post("/createSubject", CoursesController.createSubject);
 
 // Mission
 
