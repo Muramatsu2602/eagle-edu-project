@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SidebarLink, SidebarLabel, DropDownLink } from "./submenu-styling";
+import DynamicFaIcon from "../DynamicRiIcon";
 
 const SubMenu = ({ courses, sidebarData }) => {
   const [subnav, setSubnav] = useState(false);
@@ -29,7 +30,7 @@ const SubMenu = ({ courses, sidebarData }) => {
         courses.map((course, index) => {
           return (
             <DropDownLink onClick={() => showSubjects(course.name)} key={index}>
-              {course.icon}
+              <DynamicFaIcon name={course.icon} />
               <SidebarLabel>{course.name}</SidebarLabel>
             </DropDownLink>
           );

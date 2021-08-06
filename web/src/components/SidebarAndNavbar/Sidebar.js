@@ -36,20 +36,6 @@ const Sidebar = () => {
         const res = await axios.get("/getCourses");
 
         setCourses(res.data);
-        // setCourses([
-        //   {
-        //     name: "Maths",
-        //     icon: <IoIcons.IoMdNuclear />,
-        //   },
-        //   {
-        //     name: "Chemistry",
-        //     icon: <IoIcons.IoIosHappy />,
-        //   },
-        //   {
-        //     name: "History",
-        //     icon: <IoIcons.IoMdBook />,
-        //   },
-        // ]);
       } catch (err) {
         console.log("error when listing courses!");
       }
