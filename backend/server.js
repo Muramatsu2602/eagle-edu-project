@@ -19,10 +19,10 @@ server.get("/getCourseById", CoursesController.getCourseById);
 server.post("/createCourse", CoursesController.createCourse);
 
 // Subject
-server.get("/getSubjectById", CoursesController.getSubjectsByFk);
-server.get("/getSubjectsByFk", CoursesController.getSubjectsByFk);
-server.post("/updateProgressById", CoursesController.updateProgressValueById);
-server.post("/createSubject", CoursesController.createSubject);
+server.get("/getSubjectsByFk", SubjectsController.getSubjectsByFk);
+server.get("/getSubjectById", SubjectsController.getSubjectById);
+server.post("/createSubject", SubjectsController.createSubject);
+server.post("/updateProgressById", SubjectsController.updateProgressById);
 
 // Mission
 
