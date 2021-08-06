@@ -1,6 +1,6 @@
 const ck = require("ckey");
 const PORT = ck.API_PORT;
-const cors = require( "cors");
+const cors = require("cors");
 const express = require("express");
 const server = express();
 
@@ -9,9 +9,9 @@ server.use(cors());
 server.use(express.json());
 
 // =========== ROUTES ==============
-const CoursesController  = require ("./src/controllers/CoursesController");
+const CoursesController = require("./src/controllers/CoursesController");
 const SubjectsController = require("./src/controllers/SubjectsController.js");
-// import {MissionsController} from "./src/controllers/MissionsController.js";
+const MissionsController = require("./src/controllers/MissionsController.js");
 
 // Course
 server.get("/getCourses", CoursesController.getCourses);
@@ -25,6 +25,10 @@ server.post("/createSubject", SubjectsController.createSubject);
 server.post("/updateProgressById", SubjectsController.updateProgressById);
 
 // Mission
+server.get("/getMissionsByFk", MissionsController.getMissionsByFk);
+server.get("/getMissionById", MissionsController.getMissionById);
+server.post("/createMission", MissionsController.createMission);
+server.post("/updateMissionIsCompleted", MissionsController.updateMissionIsCompleted);
 
 // Checking if API is working
 server.get("/", (req, res) => {
