@@ -31,4 +31,13 @@
   // read
   const subjectList = await Subject.findAll();
   console.log(subjectList);
+
+
+  // update
+  newSubject2.name= "Subject II is edited :)";
+  newSubject2.save();
+
+  // delete
+  newSubject2.destroy();
+
 })();
