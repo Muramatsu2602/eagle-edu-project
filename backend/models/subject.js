@@ -14,11 +14,11 @@ const Subject = database.define("subject", {
     allowNull: false,
   },
   icon: {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(40),
     allowNull: false,
   },
   completionRate: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DOUBLE,
     allowNull: false,
     defaultValue: 0.0,
   },

@@ -7,7 +7,10 @@ const app = express();
 // using middleware to convert request body to JSON
 app.use(express.json());
 
-//
+app.get("/", (req, res) => {
+  res.send("Eagle Edu API is working!");
+});
+
 app.listen(PORT, () =>
-  console.log(`backend is alive and well on http://localhost:${PORT}`)
+  console.log(`Server is alive and listening to  http://localhost:${PORT}`)
 );
