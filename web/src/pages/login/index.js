@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Auth from "../../services/AuthService";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
   Container,
@@ -11,15 +11,17 @@ import {
   SubmitButton,
   InputField,
   Logo,
-  WelcomeText
+  WelcomeText,
 } from "./login-styling";
 
 function Login() {
+  const history = useHistory(); // router
+
   // Form Variables
   const [email, setEmail] = useState(""); //  const [login, setLogin] --> notion
   const [password, setPassword] = useState("");
 
-  // State Variables
+  // Status Variables
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -64,7 +66,12 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <SubmitButton type="submit"> Sign In</SubmitButton>
+            <SubmitButton
+              onClick={() => history.push("/dashboard")}
+              type="submit"
+            >
+              Sign In
+            </SubmitButton>
           </FormSection>
           <BottomLabel>
             Don't have an account? <SignUpLink to="#">Sign Up</SignUpLink> now!
