@@ -1,6 +1,5 @@
 const ck = require("ckey");
 const PORT = ck.API_PORT;
-
 const cors = require( "cors");
 const express = require("express");
 const server = express();

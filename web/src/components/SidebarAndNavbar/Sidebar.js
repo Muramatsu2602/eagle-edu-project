@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../axios";
 import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
 import * as AiIcons from "react-icons/ai";
@@ -33,23 +33,23 @@ const Sidebar = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // const res = await axios.get("/getCourses");
+        const res = await axios.get("/getCourses");
 
-        // setCourses(res.data);
-        setCourses([
-          {
-            name: "Maths",
-            icon: <IoIcons.IoMdNuclear />,
-          },
-          {
-            name: "Chemistry",
-            icon: <IoIcons.IoIosHappy />,
-          },
-          {
-            name: "History",
-            icon: <IoIcons.IoMdBook />,
-          },
-        ]);
+        setCourses(res.data);
+        // setCourses([
+        //   {
+        //     name: "Maths",
+        //     icon: <IoIcons.IoMdNuclear />,
+        //   },
+        //   {
+        //     name: "Chemistry",
+        //     icon: <IoIcons.IoIosHappy />,
+        //   },
+        //   {
+        //     name: "History",
+        //     icon: <IoIcons.IoMdBook />,
+        //   },
+        // ]);
       } catch (err) {
         console.log("error when listing courses!");
       }
