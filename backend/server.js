@@ -1,8 +1,8 @@
-import ck from "ckey";
+const ck = require("ckey");
 const PORT = ck.API_PORT;
 
-import cors from "cors";
-import express from "express";
+const cors = require( "cors");
+const express = require("express");
 const server = express();
 
 // using middleware to convert request body to JSON
@@ -10,14 +10,14 @@ server.use(cors());
 server.use(express.json());
 
 // =========== ROUTES ==============
-import CoursesController from "./src/controllers/CoursesController.js";
+const CoursesController  = require ("./src/controllers/CoursesController");
 // import {SubjectsController} from "./src/controllers/SubjectsController.js";
 // import {MissionsController} from "./src/controllers/MissionsController.js";
 
 // Course
-// server.get("/getCourses", CoursesController.getCourses);
+server.get("/getCourses", CoursesController.getCourses);
 // server.get("/getCourseById", CoursesController.getCourseById);
-// server.post("/createCourse", CoursesController.createCourse);
+server.post("/createCourse", CoursesController.createCourse);
 
 // Subject
 
