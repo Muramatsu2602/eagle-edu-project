@@ -1,33 +1,32 @@
 import React, { useState } from "react";
 import { SidebarLink, SidebarLabel, DropDownLink } from "./submenu-styling";
 
-const SubMenu = ({ course }) => {
+const SubMenu = ({ courses, sidebarData }) => {
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
 
-  
   const showSubjects = function (name) {
     alert("this will trigger the creation of course cards for: " + name);
   };
 
   return (
     <>
-      <SidebarLink onClick={course.subNav && showSubnav}>
+      <SidebarLink onClick={sidebarData.subNav && showSubnav}>
         <div>
-          {course.icon}
-          <SidebarLabel>{course.name}</SidebarLabel>
+          {sidebarData.icon}
+          <SidebarLabel>{sidebarData.name}</SidebarLabel>
         </div>
 
         <div>
-          {course.subNav && subnav
+          {sidebarData.subNav && subnav
             ? subnav.iconOpened
-            : course.subNav
-            ? course.iconClosed
+            : sidebarData.subNav
+            ? sidebarData.iconClosed
             : null}
         </div>
       </SidebarLink>
       {subnav &&
-        course.subNav.map((course, index) => {
+        courses.map((course, index) => {
           return (
             <DropDownLink onClick={() => showSubjects(course.name)} key={index}>
               {course.icon}

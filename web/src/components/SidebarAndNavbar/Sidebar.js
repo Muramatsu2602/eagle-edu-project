@@ -6,6 +6,8 @@ import * as AiIcons from "react-icons/ai";
 import * as Ricons from "react-icons/ri";
 import SubMenu from "./SubMenu";
 
+import { SidebarData } from "./SidebarData";
+
 import {
   Nav,
   NavLogoSection,
@@ -23,19 +25,7 @@ const Sidebar = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   // insert courses into SidebarData
-  const [sidebarData, setSidebarData] = useState([
-    {
-      name: "Courses",
-      icon: <AiIcons.AiFillHome />,
-      iconClosed: <Ricons.RiArrowDownSFill />,
-      iconOpened: <Ricons.RiArrowUpSFill />,
-      subNav: [],
-    },
-    {
-      name: "About",
-      icon: <FaIcons.FaInfoCircle />,
-    },
-  ]); // All courses from DB
+  const [courses, setCourses] = useState([]); // All courses from DB
 
   /**
    * Loading all Courses as items in the submenu
@@ -43,16 +33,26 @@ const Sidebar = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await axios.get("/getCourses");
-        // fixed: this will always contain all users
+        // const res = await axios.get("/getCourses");
 
-        console.log("system data");
-
-        setSidebarData((prevState) => ({
-          ...prevState,
-          subNav: res.data,
-        }));
-      } catch (err) {}
+        // setCourses(res.data);
+        setCourses([
+          {
+            name: "Maths",
+            icon: <IoIcons.IoMdNuclear />,
+          },
+          {
+            name: "Chemistry",
+            icon: <IoIcons.IoIosHappy />,
+          },
+          {
+            name: "History",
+            icon: <IoIcons.IoMdBook />,
+          },
+        ]);
+      } catch (err) {
+        console.log("error when listing courses!");
+      }
     };
 
     loadData();
@@ -79,8 +79,10 @@ const Sidebar = () => {
       <SidebarNav sidebar={sidebar}>
         <SidebarWrap>
           <SidebarTitle>PAINEL DE CONTROLE</SidebarTitle>
-          {sidebarData.map((course, index) => {
-            return <SubMenu course={course} key={index} />;
+          {SidebarData.map((sidebar, index) => {
+            return (
+              <SubMenu courses={courses} sidebarData={sidebar} key={index} />
+            );
           })}
         </SidebarWrap>
       </SidebarNav>
