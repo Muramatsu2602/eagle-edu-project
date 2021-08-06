@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import DynamicFaIcon from "../DynamicFaIcon";
 
 import {
   CardWrapper,
@@ -26,7 +27,9 @@ const CourseCard = ({ course }) => {
 
       <CardWrapper>
         <ClickableArea onClick={openMissionModal}>
-          <CourseIconSection>{course.icon}</CourseIconSection>
+          <CourseIconSection>
+            <DynamicFaIcon name={course.icon} iconSize={80}/>
+          </CourseIconSection>
           <CardButton>{course.title}</CardButton>
         </ClickableArea>
 

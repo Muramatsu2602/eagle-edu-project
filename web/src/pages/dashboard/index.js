@@ -6,6 +6,8 @@ import CourseCard from "../../components/CourseCard";
 import { CourseCardData } from "../../components/CourseCard/CourseCardData";
 import { Container, DashboardWrapper } from "./dashboard-styling";
 
+
+
 function Dashboard() {
   return (
     <Router>
