@@ -13,6 +13,10 @@ const Course = database.define("course", {
     type: Sequelize.STRING(100),
     allowNull: false,
   },
+  icon: {
+    type: Sequelize.STRING(40),
+    allowNull: false,
+  },
 
   // !USE THIS IN CASE STUDENT GETS IMPLEMENTED
   // MANUAL WAY OF IMPLEMENTING A FOREIGN KEY
