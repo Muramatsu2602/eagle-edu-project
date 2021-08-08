@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 import Confetti from "react-confetti";
+import axios from "../../axios";
 
 import {
   ModalContent,
@@ -45,11 +46,18 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
    * calls API and then updates ProgressBar
    * !The progress bar is completed depending on the number of tasks (2 tasks, 50% each)!
    */
-  const completeTask = () => {
+  const completeTask = async () => {
+    try {
+      const res = await axios.post("/missions/updateMissionIsCompleted", {
+        id: missionData.id,
+        isCompleted: missionData.isCompleted,
+      });
+    } catch (err) {
+      console.log("error when listing courses!");
+    }
+
     // Activate confetti
     setTaskIsCompleted(true);
-
-    alert(`Task '${missionData.name}' completed successfully!`);
   };
 
   useEffect(() => {
