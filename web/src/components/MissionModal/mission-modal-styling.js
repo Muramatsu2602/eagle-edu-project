@@ -80,7 +80,7 @@ export const MissionTitle = styled.h1`
 `;
 
 export const MissionDescription = styled.span`
-  font-size: 20px;
+  font-size: 22px;
   margin: 2rem;
   text-align: justify;
 `;

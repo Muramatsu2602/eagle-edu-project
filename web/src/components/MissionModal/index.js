@@ -12,6 +12,8 @@ import {
   MissionDescription,
   MissionTitle,
 } from "./mission-modal-styling";
+import DynamicFaIcon from "../DynamicFaIcon";
+import { SubjectIconSection } from "../SubjectCard/subject-card-styling";
 
 export const MissionModal = ({
   missionData,
@@ -23,6 +25,9 @@ export const MissionModal = ({
 
   // Modal's Animation  and intereaction
   const modalRef = useRef();
+
+  // sleep()
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   const animation = useSpring({
     config: {
@@ -58,13 +63,17 @@ export const MissionModal = ({
         isCompleted: true,
       });
     } catch (err) {
-      console.log("error when completing the misison!");
+      console.log("error when completing the mission!");
     }
 
-    // Activate confetti
+    // Activate confetti for some seconds before calling next mission
+    setTaskIsCompleted(true);
+
+    //
+    await delay(3000);
+    setTaskIsCompleted(false);
+
     parentCallback();
-    setShowModal(false);
-    // setTaskIsCompleted(true);
   };
 
   useEffect(() => {
@@ -110,9 +119,14 @@ export const MissionModal = ({
                 </ModalContent>
               ) : (
                 <ModalContent>
-                  <MissionTitle>
-                    No more data available for this Subject
-                  </MissionTitle>
+                  <SubjectIconSection>
+                    <DynamicFaIcon name={"FaCheckCircle"} iconSize={80} />
+                  </SubjectIconSection>
+                  <MissionTitle>All clear!</MissionTitle>
+                  <MissionDescription>
+                    This Subject either has no missions or you've completed all
+                    of them!
+                  </MissionDescription>
                 </ModalContent>
               )}
             </ModalWrapper>
