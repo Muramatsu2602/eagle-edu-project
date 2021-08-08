@@ -24,12 +24,17 @@ const SubjectCard = ({ course }) => {
 
   return (
     <>
-      <MissionModal missionData={MissionModalData[0]} showModal={showModal} setShowModal={setShowModal} />
+      <MissionModal
+        missionData={MissionModalData[0]}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
 
       <CardWrapper>
+
         <ClickableArea onClick={openMissionModal}>
           <CourseIconSection>
-            <DynamicFaIcon name={course.icon} iconSize={80}/>
+            <DynamicFaIcon name={course.icon} iconSize={80} />
           </CourseIconSection>
           <CardButton>{course.title}</CardButton>
         </ClickableArea>

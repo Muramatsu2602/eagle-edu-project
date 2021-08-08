@@ -1,5 +1,6 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
+import Confetti from "react-confetti";
 
 import {
   ModalContent,
@@ -12,6 +13,9 @@ import {
 } from "./mission-modal-styling";
 
 export const MissionModal = ({ missionData, showModal, setShowModal }) => {
+  const [taskIsCompleted, setTaskIsCompleted] = useState(false);
+
+  // Modal's Animation  and intereaction
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -42,7 +46,10 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
    * !The progress bar is completed depending on the number of tasks (2 tasks, 50% each)!
    */
   const completeTask = () => {
-    alert("task completed successfully!");
+
+    // Activate confetti
+    // setTaskIsCompleted(true);
+
     setShowModal(false);
   };
 
@@ -55,6 +62,10 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
     <>
       {showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
+          {taskIsCompleted && showModal ? (
+            <Confetti width={window.innerWidth} height={window.innerHeight} />
+          ) : null}
+
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
               <CloseModalButtonContainer>
