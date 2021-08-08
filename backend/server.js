@@ -27,6 +27,7 @@ server.post("/updateProgressById", SubjectsController.updateProgressById);
 // Mission
 server.get("/getMissionsByFk", MissionsController.getMissionsByFk);
 server.get("/getMissionById", MissionsController.getMissionById);
+server.get("/getFirstAvailableMission", MissionsController.getFirstAvailableMission);
 server.post("/createMission", MissionsController.createMission);
 server.post("/updateMissionIsCompleted", MissionsController.updateMissionIsCompleted);
 

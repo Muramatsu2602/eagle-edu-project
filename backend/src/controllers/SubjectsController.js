@@ -25,7 +25,7 @@ exports.createSubject = async (req, res) => {
 };
 
 /**
- * returns all Courses from the course table
+ * returns all Subjects from a given courseId
  * @param {*} req
  * @param {*} res
  * @returns
