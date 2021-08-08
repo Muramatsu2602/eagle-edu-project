@@ -32,7 +32,7 @@ exports.getMissionsByFk = async (req, res) => {
  */
 exports.getMissionById = async (req, res) => {
   try {
-    const mission = await Subject.findByPk(req.body.id);
+    const mission = await Mission.findByPk(req.body.id);
 
     console.log("mission loaded");
     return res.status(200).json(mission);
@@ -52,10 +52,10 @@ exports.getMissionById = async (req, res) => {
 exports.getFirstAvailableMission = async (req, res) => {
   try {
     const availableMission = await Mission.findOne({
-      where: { isCompleted: false },
+      where: { isCompleted: 0, subjectId: req.body.subjectId },
     });
 
-    console.log("first available mission loaded");
+    console.log("first available mission loaded: ", availableMission);
     return res.status(200).json(availableMission);
   } catch (e) {
     console.log("ERRO: ", e);

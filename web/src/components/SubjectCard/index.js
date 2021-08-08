@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DynamicFaIcon from "../DynamicFaIcon";
 import axios from "../../axios";
 
-import { MissionModalData } from "../MissionModal/MissionModalData";
+// import { MissionModalData } from "../MissionModal/MissionModalData";
 
 import {
   CardWrapper,
@@ -20,7 +20,8 @@ const SubjectCard = ({ subject }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openMissionModal = () => {
-    setShowModal((prev) => !prev);
+    if (currentMission) setShowModal((prev) => !prev);
+    else alert("This subject does not have missions");
   };
 
   const [currentMission, setCurrentMission] = useState();
@@ -31,17 +32,18 @@ const SubjectCard = ({ subject }) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // const res = await axios.get("/missions/getFirstAvailableMission");
+        const res = await axios.post("/missions/getFirstAvailableMission", {
+          subjectId: subject.id,
+        });
 
-        // setCurrentMission(res.data);
-        setCurrentMission(MissionModalData[1]);
+        setCurrentMission(res.data);
 
         /* 
           TODO: if completionRate is 100%
             - disable button to access mission
         */
 
-        console.log(currentMission);
+        // console.log(currentMission);
       } catch (err) {
         console.log("error when loading current Mission!");
       }

@@ -51,15 +51,15 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
       // set current mission as completed
       const res1 = await axios.post("/missions/updateMissionIsCompleted", {
         id: missionData.id,
-        isCompleted: missionData.isCompleted,
+        isCompleted: true,
       });
 
       // updated progress bar based on last mission being completed
-      // const newCompletionRate
+      const newCompletionRate = 100;
 
       const res2 = await axios.post("/subjects/updateProgressById", {
         id: missionData.subjectId,
-        // completionRate: newCompletionRate
+        completionRate: newCompletionRate
       });
     } catch (err) {
       console.log("error when completing the misison!");
