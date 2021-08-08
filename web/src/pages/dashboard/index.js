@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
 import SubjectCard from "../../components/SubjectCard";
-import { SubjectCardData } from "../../components/SubjectCard/SubjectCardData";
 import { Container, DashboardWrapper } from "./dashboard-styling";
 import axios from "../../axios";
 
@@ -19,7 +18,7 @@ function Dashboard() {
   const handleCallback = async (selectedCourse) => {
     await setCurrentCourseId(selectedCourse);
 
-    // alert("SELECTED ON DASHBOARD: " + selectedCourse);
+    alert("SELECTED ON DASHBOARD: " + selectedCourse);
   };
 
   /**
@@ -28,16 +27,11 @@ function Dashboard() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // const res = await axios.get("/subjects/getSubjectsByFk", {
-        //   courseId: currentCourseId,
-        // });
-
-        const res = await axios.get("/subjects/getSubjectById", {
-          id: 2,
+        const res = await axios.post("/subjects/getSubjectsByFk", {
+          courseId: currentCourseId,
         });
 
-        // setSubjects(res.data);
-        setSubjects(SubjectCardData);
+        setSubjects(res.data);
 
         // if (res.data == null) {
         //   alert("this course has no subjects");
@@ -50,7 +44,7 @@ function Dashboard() {
     };
 
     loadData();
-  }, []);
+  }, [currentCourseId]);
 
   return (
     <Router>

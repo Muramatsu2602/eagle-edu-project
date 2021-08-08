@@ -32,6 +32,8 @@ exports.createSubject = async (req, res) => {
  */
 exports.getSubjectsByFk = async (req, res) => {
   try {
+    console.log("reqbody ", req.body);
+
     const subjects = await Subject.findAll({
       where: { courseId: req.body.courseId },
     });
@@ -59,7 +61,7 @@ exports.getSubjectById = async (req, res) => {
     const subject = await Subject.findByPk(req.body.id);
 
     console.log("subject loaded: ");
-    
+
     return res.status(200).json(subject);
   } catch (e) {
     console.log("ERRO: ", e);

@@ -1,23 +1,23 @@
 // task list for a Course
 export const SubjectCardData = [
   {
-    title: "Likes",
+    name: "Likes",
     icon: "FaCheck",
-    progress: 87.8,
+    completionRate: 87.8,
   },
   {
-    title: "Do or Make",
+    name: "Do or Make",
     icon: "FaGraduationCap",
-    progress: 66.8,
+    completionRate: 66.8,
   },
   {
-    title: "Languages",
+    name: "Languages",
     icon: "FaLanguage",
-    progress: 21.8,
+    completionRate: 21.8,
   },
   {
-    title: "Languages II",
+    name: "Languages II",
     icon: "FaLanguage",
-    progress: 21.8,
+    completionRate: 21.8,
   },
 ];

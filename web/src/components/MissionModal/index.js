@@ -48,12 +48,21 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
    */
   const completeTask = async () => {
     try {
-      const res = await axios.post("/missions/updateMissionIsCompleted", {
+      // set current mission as completed
+      const res1 = await axios.post("/missions/updateMissionIsCompleted", {
         id: missionData.id,
         isCompleted: missionData.isCompleted,
       });
+
+      // updated progress bar based on last mission being completed
+      // const newCompletionRate
+
+      const res2 = await axios.post("/subjects/updateProgressById", {
+        id: missionData.subjectId,
+        // completionRate: newCompletionRate
+      });
     } catch (err) {
-      console.log("error when listing courses!");
+      console.log("error when completing the misison!");
     }
 
     // Activate confetti
@@ -72,7 +81,11 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
       {showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
           {taskIsCompleted && showModal ? (
-            <Confetti width={window.innerWidth} height={window.innerHeight} />
+            <Confetti
+              width={window.innerWidth}
+              height={window.innerHeight}
+              gravity={1.5}
+            />
           ) : null}
 
           <animated.div style={animation}>
