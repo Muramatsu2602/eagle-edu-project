@@ -49,7 +49,7 @@ exports.getSubjectsByFk = async (req, res) => {
 };
 
 /**
- * returns a Course given its id
+ * returns a Subject given its id
  * @param {*} req
  * @param {*} res
  * @returns
@@ -77,10 +77,10 @@ exports.getSubjectById = async (req, res) => {
 exports.updateProgressById = async (req, res) => {
   try {
     const subject = await Subject.findByPk(req.body.id);
-    //console.log(produto);
     subject.completionRate = req.body.completionRate;
 
     const result = await subject.save();
+    
     console.log("subject updated successfully");
     return res
       .status(200)
