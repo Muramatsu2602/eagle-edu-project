@@ -6,8 +6,14 @@ const SubMenu = ({ courses, sidebarData }) => {
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
 
-  const showSubjects = function (name) {
-    alert("this will trigger the creation of course cards for: " + name);
+  /**
+   * when clicked, shows the subjects that match this course's ID
+   * @param {*} course
+   */
+  const showSubjects = function (course) {
+    alert("this will trigger the creation of course cards for: " + course.name);
+
+    // send this id to  dashboard
   };
 
   return (
@@ -29,7 +35,7 @@ const SubMenu = ({ courses, sidebarData }) => {
       {subnav &&
         courses.map((course, index) => {
           return (
-            <DropDownLink onClick={() => showSubjects(course.name)} key={index}>
+            <DropDownLink onClick={() => showSubjects(course)} key={index}>
               <DynamicFaIcon name={course.icon} />
               <SidebarLabel>{course.name}</SidebarLabel>
             </DropDownLink>

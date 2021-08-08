@@ -50,6 +50,16 @@ export const ModalContent = styled.div`
     cursor: pointer;
     font-weight: 600;
   }
+
+  button:disabled {
+    padding: 10px 24px;
+    background: var(--gray);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+    font-weight: 600;
+  }
 `;
 
 export const CloseModalButton = styled(MdClose)`

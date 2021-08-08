@@ -46,14 +46,15 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
    * !The progress bar is completed depending on the number of tasks (2 tasks, 50% each)!
    */
   const completeTask = () => {
-
     // Activate confetti
-    // setTaskIsCompleted(true);
+    setTaskIsCompleted(true);
 
-    setShowModal(false);
+    alert(`Task '${missionData.name}' completed successfully!`);
   };
 
   useEffect(() => {
+    setTaskIsCompleted(false);
+
     document.addEventListener("keydown", keyPress);
     return () => document.removeEventListener("keydown", keyPress);
   }, [keyPress]);
@@ -80,7 +81,12 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
                 <MissionDescription>
                   {missionData.description}
                 </MissionDescription>
-                <button onClick={completeTask}>Click me!</button>
+
+                {!taskIsCompleted ? (
+                  <button onClick={completeTask}>Complete task!</button>
+                ) : (
+                  <button disabled>Task completed!</button>
+                )}
               </ModalContent>
             </ModalWrapper>
           </animated.div>

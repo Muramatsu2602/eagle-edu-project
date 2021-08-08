@@ -35,8 +35,8 @@ const Sidebar = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await axios.get("/getCourses");
-
+        const res = await axios.get("/courses/getCourses");
+        
         setCourses(res.data);
       } catch (err) {
         console.log("error when listing courses!");
