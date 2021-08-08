@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import DynamicFaIcon from "../DynamicFaIcon";
+
+import { MissionModalData } from "../MissionModal/MissionModalData";
 
 import {
   CardWrapper,
@@ -23,7 +24,7 @@ const SubjectCard = ({ course }) => {
 
   return (
     <>
-      <MissionModal showModal={showModal} setShowModal={setShowModal} />
+      <MissionModal missionData={MissionModalData[0]} showModal={showModal} setShowModal={setShowModal} />
 
       <CardWrapper>
         <ClickableArea onClick={openMissionModal}>

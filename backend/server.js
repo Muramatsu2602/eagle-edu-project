@@ -13,9 +13,9 @@ const courseRoutes = require("./src/routes/CourseRoutes");
 const subjectRoutes = require("./src/routes/SubjectRoutes");
 const missionRoutes = require("./src/routes/MissionRoutes");
 
-server.use("/", courseRoutes);
-server.use("/", subjectRoutes);
-server.use("/", missionRoutes);
+server.use("/courses", courseRoutes);
+server.use("/subjects", subjectRoutes);
+server.use("/missions", missionRoutes);
 
 // Checking if API is working
 server.get("/", (req, res) => {

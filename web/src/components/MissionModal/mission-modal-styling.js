@@ -64,3 +64,13 @@ export const CloseModalButton = styled(MdClose)`
 export const CloseModalButtonContainer = styled.div`
   width: 100%;
 `;
+
+export const MissionTitle = styled.h1`
+  /* border-bottom: var(--gray) solid 1px; */
+`;
+
+export const MissionDescription = styled.span`
+  font-size: 20px;
+  margin: 2rem;
+  text-align: justify;
+`;

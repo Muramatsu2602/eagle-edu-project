@@ -7,9 +7,11 @@ import {
   ModalWrapper,
   CloseModalButton,
   CloseModalButtonContainer,
+  MissionDescription,
+  MissionTitle,
 } from "./mission-modal-styling";
 
-export const MissionModal = ({ showModal, setShowModal }) => {
+export const MissionModal = ({ missionData, showModal, setShowModal }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -63,8 +65,10 @@ export const MissionModal = ({ showModal, setShowModal }) => {
               </CloseModalButtonContainer>
 
               <ModalContent>
-                <h1>Current Mission: [Mission name]</h1>
-                <p>Press the button to complete the mission</p>
+                <MissionTitle>Current Mission: {missionData.name}</MissionTitle>
+                <MissionDescription>
+                  {missionData.description}
+                </MissionDescription>
                 <button onClick={completeTask}>Click me!</button>
               </ModalContent>
             </ModalWrapper>
