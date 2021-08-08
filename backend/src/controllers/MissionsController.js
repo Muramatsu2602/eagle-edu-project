@@ -80,6 +80,8 @@ exports.createMission = async (req, res) => {
       subjectId: req.body.subjectId,
     });
 
+    console.log("Mission successfully created!");
+
     return res.status(201).json(newMission);
   } catch (error) {
     console.log(error);
@@ -90,11 +92,9 @@ exports.createMission = async (req, res) => {
   }
 };
 
-updateMissionIsCompleted;
-
 /**
- * updates the completionRate value of a given subject id
- * @param {*} req id from Subject, new value for completionRate
+ * updates the isComplete field of a mission  given  Subjectid
+ * @param {*} req id from Mission, new value for isCompleted
  * @param {*} res
  * @returns
  */

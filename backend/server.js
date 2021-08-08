@@ -8,28 +8,14 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-// =========== ROUTES ==============
-const CoursesController = require("./src/controllers/CoursesController");
-const SubjectsController = require("./src/controllers/SubjectsController.js");
-const MissionsController = require("./src/controllers/MissionsController.js");
+// Routes
+const courseRoutes = require("./src/routes/CourseRoutes");
+const subjectRoutes = require("./src/routes/SubjectRoutes");
+const missionRoutes = require("./src/routes/MissionRoutes");
 
-// Course
-server.get("/getCourses", CoursesController.getCourses);
-server.get("/getCourseById", CoursesController.getCourseById);
-server.post("/createCourse", CoursesController.createCourse);
-
-// Subject
-server.get("/getSubjectsByFk", SubjectsController.getSubjectsByFk);
-server.get("/getSubjectById", SubjectsController.getSubjectById);
-server.post("/createSubject", SubjectsController.createSubject);
-server.post("/updateProgressById", SubjectsController.updateProgressById);
-
-// Mission
-server.get("/getMissionsByFk", MissionsController.getMissionsByFk);
-server.get("/getMissionById", MissionsController.getMissionById);
-server.get("/getFirstAvailableMission", MissionsController.getFirstAvailableMission);
-server.post("/createMission", MissionsController.createMission);
-server.post("/updateMissionIsCompleted", MissionsController.updateMissionIsCompleted);
+server.use("/", courseRoutes);
+server.use("/", subjectRoutes);
+server.use("/", missionRoutes);
 
 // Checking if API is working
 server.get("/", (req, res) => {
