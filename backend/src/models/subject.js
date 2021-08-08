@@ -17,11 +17,6 @@ const Subject = database.define("subject", {
     type: Sequelize.STRING(40),
     allowNull: false,
   },
-  completionRate: {
-    type: Sequelize.DOUBLE,
-    allowNull: false,
-    defaultValue: 0.0,
-  },
 });
 
 // add Subject id foreign key to all Missions

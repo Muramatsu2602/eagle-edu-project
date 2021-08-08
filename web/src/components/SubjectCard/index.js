@@ -20,11 +20,11 @@ const SubjectCard = ({ subject }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openMissionModal = () => {
-    if (currentMission) setShowModal((prev) => !prev);
-    else alert("This subject does not have missions");
+    setShowModal((prev) => !prev);
   };
 
   const [currentMission, setCurrentMission] = useState();
+  const [currentCompletionRate, setCompletionRate] = useState(0);
 
   /**
    * Loading next available mission of this Subject
@@ -37,11 +37,6 @@ const SubjectCard = ({ subject }) => {
         });
 
         setCurrentMission(res.data);
-
-        /* 
-          TODO: if completionRate is 100%
-            - disable button to access mission
-        */
 
         // console.log(currentMission);
       } catch (err) {
@@ -70,7 +65,7 @@ const SubjectCard = ({ subject }) => {
 
         <ProgressContainer>
           <Background />
-          <Progress percent={subject.completionRate} />
+          <Progress percent={currentCompletionRate} />
         </ProgressContainer>
       </CardWrapper>
     </>

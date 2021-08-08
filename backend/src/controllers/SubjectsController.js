@@ -1,3 +1,4 @@
+const { sequelize } = require("../models/subject");
 const Subject = require("../models/subject");
 
 /**
@@ -10,7 +11,6 @@ exports.createSubject = async (req, res) => {
     const newSubject = await Subject.create({
       name: req.body.name,
       icon: req.body.icon,
-      completionRate: req.body.completionRate,
       courseId: req.body.courseId,
     });
 
@@ -32,9 +32,35 @@ exports.createSubject = async (req, res) => {
  */
 exports.getSubjectsByFk = async (req, res) => {
   try {
-    console.log("reqbody ", req.body);
-
     const subjects = await Subject.findAll({
+      attributes: {
+        include: [
+          [
+            // creates a new property in subjects that contains the number of
+            // missions of this subject
+            sequelize.literal(`(
+                    SELECT COUNT(id)
+                    FROM missions AS m
+                    WHERE
+                        m.subjectId = subject.id
+                )`),
+            "allMissions",
+          ],
+          [
+            // creates a new property in subjects that contains the number of
+            // completed missions in this subject
+            sequelize.literal(`(
+                    SELECT COUNT(id)
+                    FROM missions AS m
+                    WHERE
+                        m.subjectId = subject.id
+                        AND
+                        m.isCompleted = 1
+                )`),
+            "completedMissions",
+          ],
+        ],
+      },
       where: { courseId: req.body.courseId },
     });
 
@@ -68,31 +94,5 @@ exports.getSubjectById = async (req, res) => {
     return res
       .status(400)
       .json({ message: "Error when retrieving subject from DB", error });
-  }
-};
-
-/**
- * updates the completionRate value of a given subject id
- * @param {*} req id from Subject, new value for completionRate
- * @param {*} res
- * @returns
- */
-exports.updateProgressById = async (req, res) => {
-  try {
-    const subject = await Subject.findByPk(req.body.id);
-    subject.completionRate = req.body.completionRate;
-
-    const result = await subject.save();
-
-    console.log("subject updated successfully");
-    return res
-      .status(200)
-      .json({ message: "Successfully updated progress value!", result });
-  } catch (e) {
-    console.log("ERRO: ", e);
-    return res.status(400).json({
-      message: "Error when updating subject progress value from DB",
-      error,
-    });
   }
 };

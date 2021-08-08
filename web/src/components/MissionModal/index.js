@@ -55,12 +55,11 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
       });
 
       // updated progress bar based on last mission being completed
-      const newCompletionRate = 100;
+      const subject = await axios.get();
 
-      const res2 = await axios.post("/subjects/updateProgressById", {
-        id: missionData.subjectId,
-        completionRate: newCompletionRate
-      });
+      const newCompletionRate = 100;
+      //TODO: enviar o novo completionRate de volta pro progress do SubjectCard
+      
     } catch (err) {
       console.log("error when completing the misison!");
     }
@@ -97,18 +96,28 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
                 />
               </CloseModalButtonContainer>
 
-              <ModalContent>
-                <MissionTitle>Current Mission: {missionData.name}</MissionTitle>
-                <MissionDescription>
-                  {missionData.description}
-                </MissionDescription>
+              {missionData ? (
+                <ModalContent>
+                  <MissionTitle>
+                    Current Mission: {missionData.name}
+                  </MissionTitle>
+                  <MissionDescription>
+                    {missionData.description}
+                  </MissionDescription>
 
-                {!taskIsCompleted ? (
-                  <button onClick={completeTask}>Complete task!</button>
-                ) : (
-                  <button disabled>Task completed!</button>
-                )}
-              </ModalContent>
+                  {!taskIsCompleted ? (
+                    <button onClick={completeTask}>Complete task!</button>
+                  ) : (
+                    <button disabled>Task completed!</button>
+                  )}
+                </ModalContent>
+              ) : (
+                <ModalContent>
+                  <MissionTitle>
+                    No more data available for this Subject
+                  </MissionTitle>
+                </ModalContent>
+              )}
             </ModalWrapper>
           </animated.div>
         </Background>

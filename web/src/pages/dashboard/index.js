@@ -17,8 +17,6 @@ function Dashboard() {
    */
   const handleCallback = async (selectedCourse) => {
     await setCurrentCourseId(selectedCourse);
-
-    alert("SELECTED ON DASHBOARD: " + selectedCourse);
   };
 
   /**
