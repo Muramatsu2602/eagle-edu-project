@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
-import CourseCard from "../../components/SubjectCard";
+import SubjectCard from "../../components/SubjectCard";
 import { SubjectCardData } from "../../components/SubjectCard/SubjectCardData";
 import { Container, DashboardWrapper } from "./dashboard-styling";
 import axios from "../../axios";
@@ -19,7 +19,7 @@ function Dashboard() {
   const handleCallback = async (selectedCourse) => {
     await setCurrentCourseId(selectedCourse);
 
-    alert("SELECTED ON DASHBOARD: " + selectedCourse);
+    // alert("SELECTED ON DASHBOARD: " + selectedCourse);
   };
 
   /**
@@ -32,7 +32,16 @@ function Dashboard() {
         //   courseId: currentCourseId,
         // });
 
+        const res = await axios.get("/subjects/getSubjectById", {
+          id: 2,
+        });
+
         // setSubjects(res.data);
+        setSubjects(SubjectCardData);
+
+        // if (res.data == null) {
+        //   alert("this course has no subjects");
+        // }
 
         console.log(subjects);
       } catch (err) {
@@ -48,8 +57,8 @@ function Dashboard() {
       <Container>
         <Sidebar parentCallback={handleCallback} />
         <DashboardWrapper>
-          {SubjectCardData.map((course, index) => {
-            return <CourseCard course={course} key={index} />;
+          {subjects.map((subject, index) => {
+            return <SubjectCard subject={subject} key={index} />;
           })}
         </DashboardWrapper>
       </Container>

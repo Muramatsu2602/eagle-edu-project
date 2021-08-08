@@ -36,7 +36,7 @@ exports.getSubjectsByFk = async (req, res) => {
       where: { courseId: req.body.courseId },
     });
 
-    console.log(`All subject of the given courseId loaded`);
+    console.log(`All subjects of the given courseId have been loaded`);
     return res.status(200).json(subjects);
   } catch (e) {
     console.log("ERRO: ", e);
@@ -58,7 +58,8 @@ exports.getSubjectById = async (req, res) => {
   try {
     const subject = await Subject.findByPk(req.body.id);
 
-    console.log("subject loaded");
+    console.log("subject loaded: ");
+    
     return res.status(200).json(subject);
   } catch (e) {
     console.log("ERRO: ", e);
@@ -80,7 +81,7 @@ exports.updateProgressById = async (req, res) => {
     subject.completionRate = req.body.completionRate;
 
     const result = await subject.save();
-    
+
     console.log("subject updated successfully");
     return res
       .status(200)

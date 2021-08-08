@@ -6,7 +6,7 @@ import { MissionModalData } from "../MissionModal/MissionModalData";
 import {
   CardWrapper,
   CardButton,
-  CourseIconSection,
+  SubjectIconSection,
   Background,
   Progress,
   ProgressContainer,
@@ -15,7 +15,7 @@ import {
 
 import { MissionModal } from "../MissionModal";
 
-const SubjectCard = ({ course }) => {
+const SubjectCard = ({ subject }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openMissionModal = () => {
@@ -33,15 +33,15 @@ const SubjectCard = ({ course }) => {
       <CardWrapper>
 
         <ClickableArea onClick={openMissionModal}>
-          <CourseIconSection>
-            <DynamicFaIcon name={course.icon} iconSize={80} />
-          </CourseIconSection>
-          <CardButton>{course.title}</CardButton>
+          <SubjectIconSection>
+            <DynamicFaIcon name={subject.icon} iconSize={80} />
+          </SubjectIconSection>
+          <CardButton>{subject.title}</CardButton>
         </ClickableArea>
 
         <ProgressContainer>
           <Background />
-          <Progress percent={course.progress} />
+          <Progress percent={subject.progress} />
         </ProgressContainer>
       </CardWrapper>
     </>

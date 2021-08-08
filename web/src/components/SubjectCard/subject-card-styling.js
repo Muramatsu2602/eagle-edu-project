@@ -16,14 +16,14 @@ export const CardWrapper = styled.div`
   color: var(--gray);
 `;
 
-export const CourseIconSection = styled.div`
+export const SubjectIconSection = styled.div`
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const CourseInfoSection = styled.div`
+export const SubjectInfoSection = styled.div`
   width: 100%;
   flex-direction: column;
   display: flex;

@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -19,6 +18,10 @@ export const SidebarLink = styled(Link)`
     background: var(--eagle-purple);
     border-left: 4px solid var(-eagle-purple);
     cursor: pointer;
+  }
+
+  p {
+    color: var(--gray);
   }
 `;
 
