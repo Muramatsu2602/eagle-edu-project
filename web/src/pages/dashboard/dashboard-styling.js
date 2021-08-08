@@ -19,3 +19,9 @@ export const DashboardWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
+
+export const Title = styled.h1`
+  /* border-bottom: var(--gray) solid 1px; */
+  color: var(--gray);
+  align-self: center;
+`;

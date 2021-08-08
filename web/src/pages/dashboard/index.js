@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
 import SubjectCard from "../../components/SubjectCard";
-import { Container, DashboardWrapper } from "./dashboard-styling";
+import { Container, DashboardWrapper, Title } from "./dashboard-styling";
 import axios from "../../axios";
 
 function Dashboard() {
@@ -31,6 +31,8 @@ function Dashboard() {
 
         setSubjects(res.data);
 
+        if (res.data == null) setSubjects(null);
+
         // console.log(subjects);
       } catch (err) {
         console.log("error when listing subjects!");
@@ -48,6 +50,10 @@ function Dashboard() {
           {subjects.map((subject, index) => {
             return <SubjectCard subject={subject} key={index} />;
           })}
+
+          {subjects.length <= 0 ? (
+            <Title>No subjects available for this Course</Title>
+          ) : null}
         </DashboardWrapper>
       </Container>
     </Router>
