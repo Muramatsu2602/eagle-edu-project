@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
-import Confetti from "react-confetti";
 import axios from "../../axios";
 
+import Spinner from "../Spinner";
+import Confetti from "react-confetti";
 import {
   ModalContent,
   Background,
@@ -112,9 +113,11 @@ export const MissionModal = ({
                   </MissionDescription>
 
                   {!taskIsCompleted ? (
-                    <button onClick={completeTask}>Complete task!</button>
+                    <button onClick={completeTask}>Complete task! </button>
                   ) : (
-                    <button disabled>Task completed!</button>
+                    <button disabled>
+                      Completing Task... <Spinner />
+                    </button>
                   )}
                 </ModalContent>
               ) : (

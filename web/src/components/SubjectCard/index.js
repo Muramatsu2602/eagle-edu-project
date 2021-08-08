@@ -51,6 +51,9 @@ const SubjectCard = ({ subject }) => {
     loadData();
   }, []);
 
+  /**
+   * load Subject Card data once one mission is completed
+   */
   const handleCallback = async () => {
     loadData();
 

@@ -49,6 +49,9 @@ export const ModalContent = styled.div`
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
+
+    display: flex;
+    align-items: center;
   }
 
   button:disabled {
