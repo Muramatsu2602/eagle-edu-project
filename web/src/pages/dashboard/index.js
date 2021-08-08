@@ -31,10 +31,6 @@ function Dashboard() {
 
         setSubjects(res.data);
 
-        // if (res.data == null) {
-        //   alert("this course has no subjects");
-        // }
-
         // console.log(subjects);
       } catch (err) {
         console.log("error when listing subjects!");

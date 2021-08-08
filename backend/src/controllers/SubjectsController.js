@@ -84,7 +84,37 @@ exports.getSubjectsByFk = async (req, res) => {
  */
 exports.getSubjectById = async (req, res) => {
   try {
-    const subject = await Subject.findByPk(req.body.id);
+    const subject = await Subject.findOne({
+      attributes: {
+        include: [
+          [
+            // creates a new property in subjects that contains the number of
+            // missions of this subject
+            sequelize.literal(`(
+                  SELECT COUNT(id)
+                  FROM missions AS m
+                  WHERE
+                      m.subjectId = subject.id
+              )`),
+            "allMissions",
+          ],
+          [
+            // creates a new property in subjects that contains the number of
+            // completed missions in this subject
+            sequelize.literal(`(
+                  SELECT COUNT(id)
+                  FROM missions AS m
+                  WHERE
+                      m.subjectId = subject.id
+                      AND
+                      m.isCompleted = 1
+              )`),
+            "completedMissions",
+          ],
+        ],
+      },
+      where: req.body.id,
+    });
 
     console.log("subject loaded: ");
 

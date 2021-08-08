@@ -13,7 +13,12 @@ import {
   MissionTitle,
 } from "./mission-modal-styling";
 
-export const MissionModal = ({ missionData, showModal, setShowModal }) => {
+export const MissionModal = ({
+  missionData,
+  showModal,
+  setShowModal,
+  parentCallback,
+}) => {
   const [taskIsCompleted, setTaskIsCompleted] = useState(false);
 
   // Modal's Animation  and intereaction
@@ -43,29 +48,23 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
   );
 
   /**
-   * calls API and then updates ProgressBar
-   * !The progress bar is completed depending on the number of tasks (2 tasks, 50% each)!
+   * calls API and then updates isCompleted to true
    */
   const completeTask = async () => {
     try {
       // set current mission as completed
-      const res1 = await axios.post("/missions/updateMissionIsCompleted", {
+      const res = await axios.post("/missions/updateMissionIsCompleted", {
         id: missionData.id,
         isCompleted: true,
       });
-
-      // updated progress bar based on last mission being completed
-      const subject = await axios.get();
-
-      const newCompletionRate = 100;
-      //TODO: enviar o novo completionRate de volta pro progress do SubjectCard
-      
     } catch (err) {
       console.log("error when completing the misison!");
     }
 
     // Activate confetti
-    setTaskIsCompleted(true);
+    parentCallback();
+    setShowModal(false);
+    // setTaskIsCompleted(true);
   };
 
   useEffect(() => {
@@ -98,9 +97,7 @@ export const MissionModal = ({ missionData, showModal, setShowModal }) => {
 
               {missionData ? (
                 <ModalContent>
-                  <MissionTitle>
-                    Current Mission: {missionData.name}
-                  </MissionTitle>
+                  <MissionTitle>{missionData.name}</MissionTitle>
                   <MissionDescription>
                     {missionData.description}
                   </MissionDescription>

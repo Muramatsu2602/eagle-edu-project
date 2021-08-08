@@ -18,34 +18,57 @@ import { MissionModal } from "../MissionModal";
 
 const SubjectCard = ({ subject }) => {
   const [showModal, setShowModal] = useState(false);
+  const [currentMission, setCurrentMission] = useState();
+  const [completionRate, setCompletionRate] = useState(0.0);
+
+  const [showSubject, setShowSubject] = useState(subject);
 
   const openMissionModal = () => {
     setShowModal((prev) => !prev);
   };
 
-  const [currentMission, setCurrentMission] = useState();
-  const [currentCompletionRate, setCompletionRate] = useState(0);
+  const loadData = async () => {
+    try {
+      const res = await axios.post("/missions/getFirstAvailableMission", {
+        subjectId: subject.id,
+      });
+
+      setCurrentMission(res.data);
+      setCompletionRate(
+        (subject.completedMissions / subject.allMissions) * 100.0
+      );
+
+      // console.log(currentMission);
+    } catch (err) {
+      console.log("error when loading current Mission!");
+    }
+  };
 
   /**
    * Loading next available mission of this Subject
    */
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const res = await axios.post("/missions/getFirstAvailableMission", {
-          subjectId: subject.id,
-        });
-
-        setCurrentMission(res.data);
-
-        // console.log(currentMission);
-      } catch (err) {
-        console.log("error when loading current Mission!");
-      }
-    };
-
     loadData();
   }, []);
+
+  const handleCallback = async () => {
+    loadData();
+
+    try {
+      const res2 = await axios.post("/subjects/getSubjectById", {
+        id: subject.id,
+      });
+
+      setShowSubject(res2.data);
+      setCompletionRate(
+        (showSubject.completedMissions / showSubject.allMissions) * 100.0
+      );
+
+      console.log(res2.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -53,19 +76,20 @@ const SubjectCard = ({ subject }) => {
         missionData={currentMission}
         showModal={showModal}
         setShowModal={setShowModal}
+        parentCallback={handleCallback}
       />
 
       <CardWrapper>
         <ClickableArea onClick={openMissionModal}>
           <SubjectIconSection>
-            <DynamicFaIcon name={subject.icon} iconSize={80} />
+            <DynamicFaIcon name={showSubject.icon} iconSize={80} />
           </SubjectIconSection>
-          <CardButton>{subject.name}</CardButton>
+          <CardButton>{showSubject.name}</CardButton>
         </ClickableArea>
 
         <ProgressContainer>
           <Background />
-          <Progress percent={currentCompletionRate} />
+          <Progress percent={completionRate} />
         </ProgressContainer>
       </CardWrapper>
     </>
