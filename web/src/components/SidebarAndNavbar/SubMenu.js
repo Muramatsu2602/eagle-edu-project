@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { SidebarLink, SidebarLabel, DropDownLink } from "./submenu-styling";
 import DynamicFaIcon from "../DynamicFaIcon";
 
-const SubMenu = ({ courses, sidebarData }) => {
+const SubMenu = ({ parentCallback, courses, sidebarData }) => {
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
 
   /**
-   * when clicked, shows the subjects that match this course's ID
-   * @param {*} course
+   * when clicked, sends selected courseId to Sidebar,which in turn sends it to dashboard
+   * @param {Integer} courseId
    */
-  const showSubjects = function (course) {
-    alert("this will trigger the creation of course cards for: " + course.name);
-
+  const sendCourseIdToParent = async function (id) {
     // send this id to  dashboard
+    await parentCallback(id);
   };
 
   return (
@@ -35,7 +34,10 @@ const SubMenu = ({ courses, sidebarData }) => {
       {subnav &&
         courses.map((course, index) => {
           return (
-            <DropDownLink onClick={() => showSubjects(course)} key={index}>
+            <DropDownLink
+              onClick={() => sendCourseIdToParent(course.id)}
+              key={index}
+            >
               <DynamicFaIcon name={course.icon} />
               <SidebarLabel>{course.name}</SidebarLabel>
             </DropDownLink>

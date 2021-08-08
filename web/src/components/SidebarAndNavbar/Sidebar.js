@@ -21,13 +21,18 @@ import {
   Select,
 } from "./sidebar-and-navbar-styling";
 
-const Sidebar = () => {
+const Sidebar = ({ parentCallback }) => {
   const history = useHistory(); // router
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
   // insert courses into SidebarData
   const [courses, setCourses] = useState([]); // All courses from DB
+
+  // sends course Id to dashboard
+  const handleCallback = async (selectedCourse) => {
+    await parentCallback(selectedCourse);
+  };
 
   /**
    * Loading all Courses as items in the submenu
@@ -36,7 +41,7 @@ const Sidebar = () => {
     const loadData = async () => {
       try {
         const res = await axios.get("/courses/getCourses");
-        
+
         setCourses(res.data);
       } catch (err) {
         console.log("error when listing courses!");
@@ -74,7 +79,12 @@ const Sidebar = () => {
           <SidebarTitle>PAINEL DE CONTROLE</SidebarTitle>
           {SidebarData.map((sidebar, index) => {
             return (
-              <SubMenu courses={courses} sidebarData={sidebar} key={index} />
+              <SubMenu
+                parentCallback={handleCallback}
+                courses={courses}
+                sidebarData={sidebar}
+                key={index}
+              />
             );
           })}
         </SidebarWrap>

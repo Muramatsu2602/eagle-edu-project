@@ -9,22 +9,30 @@ import axios from "../../axios";
 
 function Dashboard() {
   // insert subjects as cards into dashboard
-  const [currentCourseId, setCurrentCourseId] = useState();
+  const [currentCourseId, setCurrentCourseId] = useState(1);
   const [subjects, setSubjects] = useState([]); // All courses from DB
 
   /**
-   * Loading all Courses as items in the submenu
+   * receives courseId from subMenu
+   * @param {integer} selectedCourse
+   */
+  const handleCallback = async (selectedCourse) => {
+    await setCurrentCourseId(selectedCourse);
+
+    alert("SELECTED ON DASHBOARD: " + selectedCourse);
+  };
+
+  /**
+   * Loading all Subjects as SubjectCards in the dashboard
    */
   useEffect(() => {
     const loadData = async () => {
       try {
-        setCurrentCourseId(3);
+        // const res = await axios.get("/subjects/getSubjectsByFk", {
+        //   courseId: currentCourseId,
+        // });
 
-        const res = await axios.get("/subjects/getSubjectsByFk", {
-          courseId: currentCourseId,
-        });
-
-        setSubjects(res.data);
+        // setSubjects(res.data);
 
         console.log(subjects);
       } catch (err) {
@@ -38,7 +46,7 @@ function Dashboard() {
   return (
     <Router>
       <Container>
-        <Sidebar />
+        <Sidebar parentCallback={handleCallback} />
         <DashboardWrapper>
           {SubjectCardData.map((course, index) => {
             return <CourseCard course={course} key={index} />;
