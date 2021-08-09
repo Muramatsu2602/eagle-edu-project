@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Eagle Edu Logo" width="200"  src="web/src/assets/main-logo.png" />
+    <img alt="Eagle Edu Logo" width="150"  src="web/src/assets/main-logo.png" />
     <br>
     Eagle Edu Project
 </h1>
