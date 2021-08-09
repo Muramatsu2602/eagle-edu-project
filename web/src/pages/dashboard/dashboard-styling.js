@@ -25,3 +25,8 @@ export const Title = styled.h1`
   color: var(--gray);
   align-self: center;
 `;
+
+export const CourseTitle = styled.h1`
+  color: var(--white);
+  margin-left: 2rem;
+`;
