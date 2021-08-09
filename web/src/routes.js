@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect, BrowserRouter, Switch } from "react-router-dom";
+import { Route, withRouter, BrowserRouter, Switch } from "react-router-dom";
 
 // Pages
 import Home from "./pages/home";
@@ -13,8 +13,6 @@ export default function Routes() {
         <Route path="/" exact component={Home} />
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/login" exact component={Login} />
-
-        {/* <PrivateRoute path="/dashboard" exact component={Dasboard}></PrivateRoute> */}
         {/* 
           <Route exact path="/dashboard" component={Dashboard} />
         */}
