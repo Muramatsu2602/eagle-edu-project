@@ -5,6 +5,7 @@ import Sidebar from "../../components/SidebarAndNavbar/Sidebar";
 import SubjectCard from "../../components/SubjectCard";
 import { Container, DashboardWrapper, Title, CourseTitle } from "./dashboard-styling";
 import axios from "../../axios";
+import DynamicFaIcon from "../../components/DynamicFaIcon";
 
 function Dashboard() {
   // insert subjects as cards into dashboard
@@ -54,7 +55,10 @@ function Dashboard() {
     <Router>
       <Container>
         <Sidebar parentCallback={handleCallback} />
-        <CourseTitle>{currentCourse.name}</CourseTitle>
+        <CourseTitle>
+          <DynamicFaIcon name={currentCourse.icon}  /><div>&nbsp;</div>
+          {currentCourse.name}
+          </CourseTitle>
         <DashboardWrapper>
           {subjects.map((subject, index) => {
             return <SubjectCard subject={subject} key={index} />;

@@ -29,4 +29,8 @@ export const Title = styled.h1`
 export const CourseTitle = styled.h1`
   color: var(--white);
   margin-left: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
