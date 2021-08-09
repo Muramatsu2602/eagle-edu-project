@@ -20,7 +20,7 @@ export const DashboardWrapper = styled.div`
   justify-content: center;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   /* border-bottom: var(--gray) solid 1px; */
   color: var(--gray);
   align-self: center;

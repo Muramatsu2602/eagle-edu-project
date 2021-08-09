@@ -65,7 +65,7 @@ function Dashboard() {
           })}
 
           {subjects.length <= 0 ? (
-            <Title>No subjects available for this Course</Title>
+            <Title>No subjects available for the '{currentCourse.name}' course</Title>
           ) : null}
         </DashboardWrapper>
       </Container>
