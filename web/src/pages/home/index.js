@@ -24,7 +24,7 @@ function Home() {
       <MainTitle>Eagle Education 2.0</MainTitle>
       <LogoWrapper>
         <img src={landingPageEagle} alt="eagle from landing" />
-        <RedirectButton onClick={() => history.push("/dashboard")}>
+        <RedirectButton onClick={() => history.push("/login")}>
           Click Here to Start!
         </RedirectButton>
       </LogoWrapper>
