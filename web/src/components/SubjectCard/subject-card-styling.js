@@ -21,6 +21,8 @@ export const SubjectIconSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-bottom: 0.5rem;
 `;
 
 export const SubjectInfoSection = styled.div`

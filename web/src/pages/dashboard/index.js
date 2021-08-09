@@ -15,8 +15,8 @@ function Dashboard() {
    * receives courseId from subMenu
    * @param {integer} selectedCourse
    */
-  const handleCallback = async (selectedCourse) => {
-    await setCurrentCourseId(selectedCourse);
+  const handleCallback = (selectedCourse) => {
+    setCurrentCourseId(selectedCourse);
   };
 
   /**
@@ -29,9 +29,8 @@ function Dashboard() {
           courseId: currentCourseId,
         });
 
+        setSubjects([]);
         setSubjects(res.data);
-
-        if (res.data == null) setSubjects(null);
 
         // console.log(subjects);
       } catch (err) {

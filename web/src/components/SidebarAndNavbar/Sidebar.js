@@ -64,7 +64,6 @@ const Sidebar = ({ parentCallback }) => {
             <option value="" hidden>
               Language
             </option>
-
             <option value="1">English 🇺🇸 </option>
             <option value="2">Português 🇧🇷</option>
             <option value="3">日本語 🇯🇵</option>
