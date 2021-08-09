@@ -37,8 +37,6 @@ const SubjectCard = ({ subject }) => {
       setCompletionRate(
         (subject.completedMissions / subject.allMissions) * 100.0
       );
-
-      // console.log(currentMission);
     } catch (err) {
       console.log("error when loading current Mission!");
     }
