@@ -8,6 +8,17 @@
   Projeto Prático para o processo seletivo de Iniciação Científica oferecida pela Startup Eagle Education em parceria com o ICMC-USP
 </h4>
 
+## Pictures
+
+### Dashboard
+<img alt="Eagle Edu Dashboard with Sidemenu activated"  src="readme-assets/dashboard_pic.png" />
+
+### Mission Modal
+<img alt="Eagle edu Mission Modal"  src="readme-assets/mission_modal.png" />
+
+### Login Form
+<img alt="Eagle edu Login Form"  src="readme-assets/login_form.png" />
+
 ---
 ## 🚀 Technologies
 
@@ -42,6 +53,9 @@ $ cd backend
 
 # Install dependencies
 $ npm install
+
+# Execute migrations to a MySQL Database
+node index
 
 # Run the API (on another terminal tab)
 $ npm start

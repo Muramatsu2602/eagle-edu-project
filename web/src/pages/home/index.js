@@ -11,7 +11,6 @@ import {
 /**
  * TODO:
  * - Add personal information (to help pitch)
- * - Add Button to login page
  * - Add "made with love by @Muramatsu2602" on the bottom, like RGBWallet
  *
  */
