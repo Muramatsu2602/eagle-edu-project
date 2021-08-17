@@ -57,6 +57,7 @@ $ cd backend
 $ npm install
 
 # Execute migrations to a MySQL Database
+cd backend/src/
 node index
 
 # Run the API (on another terminal tab)
