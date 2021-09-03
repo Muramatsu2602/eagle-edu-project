@@ -68,7 +68,7 @@ const Sidebar = ({ parentCallback }) => {
             <option value="2">Português 🇧🇷</option>
             <option value="3">日本語 🇯🇵</option>
           </Select>
-          
+
           <NavIcon onClick={() => history.push("/login")}>
             <IoIcons.IoMdPerson />
           </NavIcon>

@@ -49,36 +49,34 @@ function Login() {
   };
 
   return (
-    <>
-      <Container>
-        <LoginForm>
-          <WelcomeText>Welcome to</WelcomeText>
-          <Logo />
-          <FormSection onSubmit={onSubmit}>
-            <InputField
-              type="text"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <InputField
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+    <Container>
+      <LoginForm>
+        <WelcomeText>Welcome to</WelcomeText>
+        <Logo />
+        <FormSection onSubmit={onSubmit}>
+          <InputField
+            type="text"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputField
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-            <SubmitButton
-              onClick={() => history.push("/dashboard")}
-              type="submit"
-            >
-              Sign In
-            </SubmitButton>
-          </FormSection>
-          <BottomLabel>
-            Don't have an account? <SignUpLink to="#">Sign Up</SignUpLink> now!
-          </BottomLabel>
-        </LoginForm>
-      </Container>
-    </>
+          <SubmitButton
+            onClick={() => history.push("/dashboard")}
+            type="submit"
+          >
+            Sign In
+          </SubmitButton>
+        </FormSection>
+        <BottomLabel>
+          Don't have an account? <SignUpLink to="#">Sign Up</SignUpLink> now!
+        </BottomLabel>
+      </LoginForm>
+    </Container>
   );
 }
 

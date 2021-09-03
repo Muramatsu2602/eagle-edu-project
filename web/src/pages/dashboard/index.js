@@ -8,6 +8,9 @@ import axios from "../../axios";
 import DynamicFaIcon from "../../components/DynamicFaIcon";
 
 function Dashboard() {
+
+  //#Será que não seria melhor usar um contexto para armazenar o curso e as subjects?
+
   // insert subjects as cards into dashboard
   const [currentCourseId, setCurrentCourseId] = useState(1);
   const [currentCourse, setCurrentCourse] = useState({});
@@ -17,6 +20,9 @@ function Dashboard() {
    * receives courseId from subMenu
    * @param {integer} selectedCourse
    */
+
+  //#Acho o nome handleCallback muito genérico, não mostra o que a função realmente faz.
+
   const handleCallback = async (selectedCourse) => {
     setCurrentCourseId(selectedCourse);
   };
@@ -25,6 +31,7 @@ function Dashboard() {
    * Loading all Subjects as SubjectCards in the dashboard
    */
   useEffect(() => {
+    //#Nome res e res2 acredito que não seja muito bom.
     const loadData = async () => {
       try {
         const res = await axios.post("/subjects/getSubjectsByFk", {
@@ -52,14 +59,16 @@ function Dashboard() {
   }, [currentCourseId]);
 
   return (
-    <Router>
+    <Router>{/*//#O que esse router faz aqui?*/}
       <Container>
         <Sidebar parentCallback={handleCallback} />
         <CourseTitle>
-          <DynamicFaIcon name={currentCourse.icon}  /><div>&nbsp;</div>
+          <DynamicFaIcon name={currentCourse.icon}  />
+          <div>&nbsp;</div> {/*//#precisa dessa div?*/}
           {currentCourse.name}
-          </CourseTitle>
+        </CourseTitle>
         <DashboardWrapper>
+          {/*//#Será que não seria melhor fazer o map fora para deixar o render mais limpo?*/}
           {subjects.map((subject, index) => {
             return <SubjectCard subject={subject} key={index} />;
           })}
