@@ -8,6 +8,8 @@
   Projeto Prático para o processo seletivo de Iniciação Científica oferecida pela Startup Eagle Education em parceria com o ICMC-USP
 </h4>
 
+---
+
 ## Pictures
 
 ### Dashboard
@@ -55,6 +57,7 @@ $ cd backend
 $ npm install
 
 # Execute migrations to a MySQL Database
+cd backend/src/
 node index
 
 # Run the API (on another terminal tab)
