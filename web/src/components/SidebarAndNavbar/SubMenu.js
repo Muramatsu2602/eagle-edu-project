@@ -16,7 +16,7 @@ const SubMenu = ({ parentCallback, courses, sidebarData }) => {
   };
 
   return (
-    <>
+    <div>
       <SidebarLink onClick={sidebarData.subNav && showSubnav}>
         <div>
           {sidebarData.icon}
@@ -43,7 +43,7 @@ const SubMenu = ({ parentCallback, courses, sidebarData }) => {
             </DropDownLink>
           );
         })}
-    </>
+    </div>
   );
 };
 

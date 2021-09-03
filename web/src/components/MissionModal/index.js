@@ -85,7 +85,7 @@ export const MissionModal = ({
   }, [keyPress]);
 
   return (
-    <>
+    <div>
       {showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
           {taskIsCompleted && showModal ? (
@@ -136,6 +136,6 @@ export const MissionModal = ({
           </animated.div>
         </Background>
       ) : null}
-    </>
+    </div>
   );
 };

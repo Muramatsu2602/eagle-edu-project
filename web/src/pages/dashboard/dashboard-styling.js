@@ -15,9 +15,9 @@ export const DashboardWrapper = styled.div`
   height: auto;
   margin: 2rem;
   padding: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
 `;
 
 export const Title = styled.h2`

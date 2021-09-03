@@ -52,7 +52,7 @@ const Sidebar = ({ parentCallback }) => {
   }, []);
 
   return (
-    <>
+    <div>
       <Nav>
         <NavLogoSection to="#">
           <Logo />
@@ -89,7 +89,7 @@ const Sidebar = ({ parentCallback }) => {
           })}
         </SidebarWrap>
       </SidebarNav>
-    </>
+    </div>
   );
 };
 

@@ -12,6 +12,7 @@ import {
   Progress,
   ProgressContainer,
   ClickableArea,
+  GenericContainer
 } from "./subject-card-styling";
 
 import { MissionModal } from "../MissionModal";
@@ -24,10 +25,9 @@ import { MissionModal } from "../MissionModal";
 //#Seria bom revisar as funções, parece ter algumas coisas desnecessárias.
 
 const SubjectCard = ({ subject }) => {
-
   const [showModal, setShowModal] = useState(false);
   const [currentMission, setCurrentMission] = useState();
-  
+
   //#Talvez valesse a pena armazenar apenas o completedMission
   const [completionRate, setCompletionRate] = useState(0.0);
   //#Talvez seja melhor dividir em mais estados
@@ -36,7 +36,6 @@ const SubjectCard = ({ subject }) => {
   const openMissionModal = () => {
     setShowModal((prev) => !prev);
   };
-
 
   //#Subdividir em funções menores ou algo do tipo
 
@@ -67,7 +66,7 @@ const SubjectCard = ({ subject }) => {
    * load Subject Card data once one mission is completed
    */
 
-  //#handleCallback é um nome genérico de mais, não diz direito o que a função faz! 
+  //#handleCallback é um nome genérico de mais, não diz direito o que a função faz!
   const handleCallback = async () => {
     loadData();
 
@@ -89,18 +88,17 @@ const SubjectCard = ({ subject }) => {
   };
 
   return (
-    <>
+    <GenericContainer>
       <MissionModal
         missionData={currentMission}
         showModal={showModal}
         setShowModal={setShowModal}
-        parentCallback={handleCallback} //#parentCallback é um nome genérico de mais, não diz direito o que a função faz. 
+        parentCallback={handleCallback} //#parentCallback é um nome genérico de mais, não diz direito o que a função faz.
       />
-
       <CardWrapper>
         <ClickableArea onClick={openMissionModal}>
           <SubjectIconSection>
-            <DynamicFaIcon name={showSubject.icon} iconSize={80} />
+            <DynamicFaIcon name={showSubject.icon} iconSize={100} />
           </SubjectIconSection>
           <CardButton>{showSubject.name}</CardButton>
         </ClickableArea>
@@ -110,7 +108,7 @@ const SubjectCard = ({ subject }) => {
           <Progress percent={completionRate} />
         </ProgressContainer>
       </CardWrapper>
-    </>
+    </GenericContainer>
   );
 };
 

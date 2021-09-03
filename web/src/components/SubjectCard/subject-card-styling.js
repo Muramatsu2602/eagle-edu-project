@@ -4,10 +4,7 @@ import * as IoIcons from "react-icons/io";
 import * as AiIcons from "react-icons/ai";
 
 export const CardWrapper = styled.div`
-  width: 45%;
-  /* border: 0.2rem solid var(--gray-dark); */
-  /* padding: 1rem; */
-  margin: 2.3rem;
+  margin: 3rem;
 
   flex-direction: column;
   display: flex;
@@ -90,4 +87,8 @@ export const ClickableArea = styled.div`
   width: 100%;
   flex-direction: column;
   cursor: pointer;
+`;
+
+export const GenericContainer = styled.div`
+  
 `;
