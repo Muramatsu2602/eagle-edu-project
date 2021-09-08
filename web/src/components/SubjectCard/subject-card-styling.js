@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import * as FaIcons from "react-icons/fa";
-import * as IoIcons from "react-icons/io";
-import * as AiIcons from "react-icons/ai";
 
 export const CardWrapper = styled.div`
   margin: 3rem;
