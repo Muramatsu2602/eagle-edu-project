@@ -66,4 +66,4 @@ $ npm start
 ```
 
 ---
-Made with ♥ by @Muramatsu2602 👋  [Get in touch!](www.linkedin.com/in/muramatsu-pedro)
+Made with ♥ by @Muramatsu2602 👋  [Get in touch!](https://www.linkedin.com/in/muramatsu-pedro)
