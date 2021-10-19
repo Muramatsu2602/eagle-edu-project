@@ -5,8 +5,8 @@
 </h1>
 
 <h4 align="center">
+     🇺🇸   React-Based dashboard for a a gamified Tutoring System. This project is part of the selective process for a undergrad researcher and fullstack programmer position @ Eagle-edu, a Brazilian EdTech specialized in Gamified ITS (Intelligent Tutoring System)
   🇧🇷 Projeto Prático para o processo seletivo de Iniciação Científica oferecida pela Startup Eagle Education em parceria com o ICMC-USP <br>
-  🇺🇸   React-Based dashboard for a a gamified Tutoring System. This project is part of the selective process for a undergrad researcher and fullstack programmer position @ Eagle-edu, a Brazilian EdTech specialized in Gamified ITS (Intelligent Tutoring System)
 </h4>
 
 ---
